@@ -1,0 +1,42 @@
+% Nehme andere Verzeichnise ins Inhaltsverzeichnis auf
+\documentclass[listof=totoc,bibliography=totoc]{scrreprt}
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+
+% puts the images where they belong
+\usepackage{float}
+
+% makes refs clickable
+\usepackage{hyperref}
+\usepackage{caption} % show the images when clicked on a ref
+\usepackage{amssymb}
+
+% unsauber (wegen hässlicher typo von scrrept)
+\renewcommand*\rmdefault{ppl}
+\renewcommand*\sfdefault{ppl}
+\renewcommand*\ttdefault{cmss}
+
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage[automark, headsepline,footsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\pagestyle{scrheadings}
+% zeige Header & Footer auch auf Kapitelseiten
+\renewcommand*\chapterpagestyle{scrheadings}
+
+\automark{section}
+\ohead{\headmark}
+\ofoot*{\pagemark}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{siunitx}
+\sisetup{
+  locale = DE ,
+  per-mode = symbol
+}
