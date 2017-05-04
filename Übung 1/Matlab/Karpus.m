@@ -4,9 +4,8 @@ function [samples] = Karpus(fs, f0, lengthInSec)
     sampleCount = fs * lengthInSec;
     samples = zeros(1, sampleCount);
     
-    
-    for i = 0:(sampleCount - 1)
-        n = mod(i, wavetableLength) + 1;
-        samples(i + 1) = wavetable(n);
+    for i = 1:sampleCount
+        n = mod(i - 1, wavetableLength) + 1;
+        samples(i) = wavetable(n);
     end
 end
