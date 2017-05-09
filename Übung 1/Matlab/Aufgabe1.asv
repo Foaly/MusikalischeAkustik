@@ -29,7 +29,7 @@ audiowrite('y3.wav', y3, fs);
 
 %% c)
 
-% calculate spectra of the three wave files 
+% calculate and plot spectra of the three wave files 
 sp1 = abs(fft(y1));
 sp2 = abs(fft(y2));
 sp3 = abs(fft(y3));

@@ -5,12 +5,12 @@ close all
 fs = 44100;
 f0 = 100;
 
-% a)
+%% a)
 
 gain = 0.99999;
 a = Karpus2(fs, f0, 3.0, 2, gain);
 
-% b)
+%% b)
 
 y4 = Karpus2(fs, f0, 3.0, 2, gain);
 audiowrite('y_4.wav', y4, fs);

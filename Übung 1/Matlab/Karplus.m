@@ -2,9 +2,9 @@
 % Karplus-Strong Algorithm
 %
 % fs          : Samplerate
-% f0          : Grundfrequenz
+% f0          : Fundamental frequency
 % lengthInSec : Length of the output signal in seconds
-% averageN    : Number of elements the are averaged
+% averageN    : Number of elements that are averaged
 % gain        : Gain
 
 function [samples] = Karplus(fs, f0, lengthInSec, averageN, gain)
