@@ -3,8 +3,8 @@
 
 close all
 
-%Create a wavetable that will result in a white tone with f0 = 100 Hz when 
-%using a sample rate of fs = 44100 Hz
+% Create a wavetable that will result in a white tone with f0 = 100 Hz when 
+% using a sample rate of fs = 44100 Hz
 fs = 44100;
 f0 = 100;
 
@@ -16,16 +16,16 @@ wavetable = Wavetable(fs, f0);
 gain = 1.0;
 
 % Generate three wave files with fundamental frequencies of 100 Hz using
-% the karplus-strong algorithm. Input wavetables have the same lengths 
+% the karplus-strong algorithm. Wavetables have the same lengths 
 % but different sets of random numbers
 y1 = Karplus(fs, f0, 3.0, 1, gain);
-audiowrite('y1.wav', y1, fs);
+audiowrite('y_1.wav', y1, fs);
 
 y2 = Karplus(fs, f0, 3.0, 1, gain);
-audiowrite('y2.wav', y2, fs);
+audiowrite('y_2.wav', y2, fs);
 
 y3 = Karplus(fs, f0, 3.0, 1, gain);
-audiowrite('y3.wav', y3, fs);
+audiowrite('y_3.wav', y3, fs);
 
 %% c)
 
@@ -43,23 +43,26 @@ sp3 = sp3./max_ampl;
 % generate a vector with the frequencies for the f-axis of the spectra
 f=(0:(length(sp1)-1))/length(sp1)*fs; 
 
-%plot all three spectra in different figures
+% plot all three spectra in different figures
 figure;
 plot(f,sp1);
-title('spectrum of y1.wav');
+title('spectrum of y\_1.wav');
 xlim([0 2000]);
+ylim([0 1]);
 xlabel('f in Hz')
 ylabel('normalized amplitude');
 figure;
 plot(f,sp2);
-title('spectrum of y2.wav');
+title('spectrum of y\_2.wav');
 xlim([0 2000]);
+ylim([0 1]);
 xlabel('f in Hz')
 ylabel('normalized amplitude');
 figure;
 plot(f,sp3);
-title('spectrum of y3.wav');
+title('spectrum of y\_3.wav');
 xlim([0 2000]);
+ylim([0 1]);
 xlabel('f in Hz')
 ylabel('normalized amplitude');
 
