@@ -48,28 +48,29 @@ sp3 = sp3./max_ampl;
 f=(0:(length(sp1)-1))/length(sp1)*fs; 
 
 % plot all three spectra in different figures
-figure;
+
+% h = figure;
+
 plot(f,sp1);
-title('spectrum of y\_1.wav');
+% title('spectrum of y\_1.wav');
 xlim([0 2000]);
 ylim([0 1]);
 xlabel('f in Hz')
 ylabel('normalized amplitude');
 figure;
 plot(f,sp2);
-title('spectrum of y\_2.wav');
+% title('spectrum of y\_2.wav');
 xlim([0 2000]);
 ylim([0 1]);
 xlabel('f in Hz')
 ylabel('normalized amplitude');
 figure;
 plot(f,sp3);
-title('spectrum of y\_3.wav');
+% title('spectrum of y\_3.wav');
 xlim([0 2000]);
 ylim([0 1]);
 xlabel('f in Hz')
 ylabel('normalized amplitude');
-
 
 %% Aufgabe 2
 
@@ -91,3 +92,15 @@ audiowrite('y_5.wav', y5, fs);
 
 y6 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_6.wav', y6, fs);
+
+
+%% d)
+
+y7 = Karplus(fs, f0, 3.0, hann(5), gain, false);
+audiowrite('y_7.wav', y7, fs);
+
+y8 = Karplus(fs, f0, 3.0, filter, gain, false);
+audiowrite('y_8.wav', y8, fs);
+
+y9 = Karplus(fs, f0, 3.0, filter, gain, false);
+audiowrite('y_9.wav', y9, fs);
