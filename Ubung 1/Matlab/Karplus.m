@@ -41,7 +41,9 @@ function [samples] = Karplus(fs, f0, lengthInSec, filter, gain, draw)
         if draw == true && head == 1
             plot(wavetable);
             ylim([-1 1]);
+            ylabel('Amplitude');
             xlim([0 wavetableLength]);
+            xlabel('Samples');
             pause(0.1);
         end
     end
