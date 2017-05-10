@@ -22,13 +22,13 @@ filter = [1.0];
 % Generate three wave files with fundamental frequencies of 100 Hz using
 % the karplus-strong algorithm. Wavetables have the same lengths 
 % but different sets of random numbers
-y1 = Karplus(fs, f0, 3.0, filter, gain);
+y1 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_1.wav', y1, fs);
 
-y2 = Karplus(fs, f0, 3.0, filter, gain);
+y2 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_2.wav', y2, fs);
 
-y3 = Karplus(fs, f0, 3.0, filter, gain);
+y3 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_3.wav', y3, fs);
 
 %% c)
@@ -78,16 +78,16 @@ ylabel('normalized amplitude');
 gain = 0.9799;
 filter = [1.0, 1.0];
 
-y = Karplus(fs, f0, 3.0, filter, gain);
+y = Karplus(fs, f0, 3.0, filter, gain, true);
 audiowrite('mean.wav', y, fs);
 
 %% b)
 
-y4 = Karplus(fs, f0, 3.0, filter, gain);
+y4 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_4.wav', y4, fs);
 
-y5 = Karplus(fs, f0, 3.0, filter, gain);
+y5 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_5.wav', y5, fs);
 
-y6 = Karplus(fs, f0, 3.0, filter, gain);
+y6 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_6.wav', y6, fs);
