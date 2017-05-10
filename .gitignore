@@ -25,5 +25,6 @@
 # TexMaker files
 *.synctex.gz
 
-# Matlab autosave
+# Matlab
 *.asv
+*.m~
