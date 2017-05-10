@@ -1,4 +1,5 @@
 %% Aufgabe 1
+
 %% a)
 
 close all
@@ -15,17 +16,20 @@ wavetable = Wavetable(fs, f0);
 % Set gain factor to 1 for the first task 
 gain = 1.0;
 
+% Set filter coefficients to 1 for the first task 
+filter = [1.0];
+
 % Generate three wave files with fundamental frequencies of 100 Hz using
 % the karplus-strong algorithm. Input wavetables have the same lengths 
 % but different sets of random numbers
-y1 = Karplus(fs, f0, 3.0, 1, gain);
-audiowrite('y1.wav', y1, fs);
+y1 = Karplus(fs, f0, 3.0, filter, gain);
+audiowrite('y_1.wav', y1, fs);
 
-y2 = Karplus(fs, f0, 3.0, 1, gain);
-audiowrite('y2.wav', y2, fs);
+y2 = Karplus(fs, f0, 3.0, filter, gain);
+audiowrite('y_2.wav', y2, fs);
 
-y3 = Karplus(fs, f0, 3.0, 1, gain);
-audiowrite('y3.wav', y3, fs);
+y3 = Karplus(fs, f0, 3.0, filter, gain);
+audiowrite('y_3.wav', y3, fs);
 
 %% c)
 
@@ -64,9 +68,23 @@ xlabel('f in Hz')
 ylabel('normalized amplitude');
 
 
-
-
 %% Aufgabe 2
+
+%% a)
+
 gain = 0.9799;
-y = Karplus(fs, f0, 3.0, 2, gain);
+filter = [1.0, 1.0];
+
+y = Karplus(fs, f0, 3.0, filter, gain);
 audiowrite('mean.wav', y, fs);
+
+%% b)
+
+y4 = Karplus(fs, f0, 3.0, filter, gain);
+audiowrite('y_4.wav', y4, fs);
+
+y5 = Karplus(fs, f0, 3.0, filter, gain);
+audiowrite('y_5.wav', y5, fs);
+
+y6 = Karplus(fs, f0, 3.0, filter, gain);
+audiowrite('y_6.wav', y6, fs);
