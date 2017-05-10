@@ -15,7 +15,10 @@ function [samples] = Karplus(fs, f0, lengthInSec, filter, gain, draw)
     sampleCount = fs * lengthInSec;
     samples = zeros(1, sampleCount);
     averageN = size(filter, 2);
-    figure;
+    
+    if draw == true
+        figure;
+    end
 
     for i = 0:(sampleCount - 1)
         head = mod(i, wavetableLength) + 1;
@@ -39,7 +42,7 @@ function [samples] = Karplus(fs, f0, lengthInSec, filter, gain, draw)
             plot(wavetable);
             ylim([-1 1]);
             xlim([0 wavetableLength]);
-            pause(0.01);
+            pause(0.1);
         end
     end
 end
