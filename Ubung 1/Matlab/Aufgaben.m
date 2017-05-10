@@ -103,10 +103,10 @@ audiowrite('y_6.wav', y6, fs);
 y7 = Karplus(fs, f0, 3.0, hann(5), gain, false);
 audiowrite('y_7.wav', y7, fs);
 
-triangle = [0.0, 0.5, 1.0, 0.5, 0.0];
-y8 = Karplus(fs, f0, 3.0, triangle, 1.6, false);
+
+y8 = Karplus(fs, f0, 3.0, hann(9), 1.0, false);
 audiowrite('y_8.wav', y8, fs);
 
-ramp = [0.0, 0.25, 0.5, 0.75, 1.0]
-y9 = Karplus(fs, f0, 3.0, ramp, 1.9, false);
+
+y9 = Karplus(fs, f0, 3.0, , 1.9, false);
 audiowrite('y_9.wav', y9, fs);
