@@ -106,6 +106,13 @@ y6 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_6.wav', y6, fs);
 
 
+h = figure;
+plot(f,y5);
+xlabel('samples')
+ylabel('amplitude');
+Saveplot(h, 'sample');
+
+
 %% d)
 %produce wav-files with higher order filters
 
