@@ -90,6 +90,13 @@ audiowrite('mean.wav', y, fs);
 %% b)
 % produce wav-files from three different noise vectors
 y4 = Karplus(fs, f0, 3.0, filter, gain, false);
+% plot the signal
+h = figure;
+plot(y4);
+xlabel('Samples')
+ylabel('Amplitude');
+Saveplot(h, 'samples');
+
 audiowrite('y_4.wav', y4, fs);
 
 y5 = Karplus(fs, f0, 3.0, filter, gain, false);
