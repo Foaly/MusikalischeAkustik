@@ -51,7 +51,6 @@ f=(0:(length(sp1)-1))/length(sp1)*fs;
 
 h = figure;
 plot(f,sp1);
-% title('spectrum of y\_1.wav');
 xlim([0 2000]);
 ylim([0 1]);
 xlabel('f in Hz')
@@ -60,7 +59,6 @@ Saveplot(h, 'spectrum1');
 
 h = figure;
 plot(f,sp2);
-% title('spectrum of y\_2.wav');
 xlim([0 2000]);
 ylim([0 1]);
 xlabel('f in Hz')
@@ -69,7 +67,6 @@ Saveplot(h, 'spectrum2');
 
 h = figure;
 plot(f,sp3);
-% title('spectrum of y\_3.wav');
 xlim([0 2000]);
 ylim([0 1]);
 xlabel('f in Hz')
@@ -80,14 +77,18 @@ Saveplot(h, 'spectrum3');
 
 %% a)
 
+% set gain factor to a good value
 gain = 0.9799;
+
+% moving average filter
 filter = [1.0, 1.0];
 
+% produce test-wav-file to check whether gain factor produces nice decay
 y = Karplus(fs, f0, 3.0, filter, gain, true);
 audiowrite('mean.wav', y, fs);
 
 %% b)
-
+% produce wav-files from three different noise vectors
 y4 = Karplus(fs, f0, 3.0, filter, gain, false);
 audiowrite('y_4.wav', y4, fs);
 
@@ -99,14 +100,19 @@ audiowrite('y_6.wav', y6, fs);
 
 
 %% d)
+%produce wav-files with higher order filters
 
-y7 = Karplus(fs, f0, 3.0, hann(5), gain, false);
+% long moving average filter 
+filter2 =[1, 1 1 1 1 1];
+y7 = Karplus(fs, f0, 3.0, filter2, 0.9799, false);
 audiowrite('y_7.wav', y7, fs);
 
-
-y8 = Karplus(fs, f0, 3.0, hann(9), 1.0, false);
+%longer moving average filter
+filter3 =[1, 1 1 1 1 1 1 1 1 1 1];
+y8 = Karplus(fs, f0, 3.0, filter3, 0.9799 , false);
 audiowrite('y_8.wav', y8, fs);
 
-
-y9 = Karplus(fs, f0, 3.0, , 1.9, false);
+%even longer moving average filter
+filter4 = [1, 1 1 1 1 1 1 1 1 1 1 1 1 1 1];
+y9 = Karplus(fs, f0, 3.0, filter4, 0.9799, false);
 audiowrite('y_9.wav', y9, fs);
