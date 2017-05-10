@@ -6,16 +6,14 @@
 % lengthInSec : Length of the output signal in seconds
 % filter      : Filter coefficients
 % gain        : Gain
-% draw        : boolean, if the wavetable should be drawn
 
-function [samples] = Karplus(fs, f0, lengthInSec, filter, gain, draw)
+function [samples] = Karplus(fs, f0, lengthInSec, filter, gain)
     % generate wavetable and initialize stuff
     wavetable = Wavetable(fs, f0);
     wavetableLength = size(wavetable, 2);
     sampleCount = fs * lengthInSec;
     samples = zeros(1, sampleCount);
     averageN = size(filter, 2);
-    figure;
 
     for i = 0:(sampleCount - 1)
         head = mod(i, wavetableLength) + 1;
@@ -33,12 +31,5 @@ function [samples] = Karplus(fs, f0, lengthInSec, filter, gain, draw)
         
         % write output
         samples(i + 1) = wavetable(head);
-        
-        if draw == true && head == 1
-            plot(wavetable);
-            ylim([-1 1]);
-            xlim([0 wavetableLength]);
-            pause(0.01);
-        end
     end
 end
