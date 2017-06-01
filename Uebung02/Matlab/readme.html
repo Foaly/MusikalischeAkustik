@@ -1,0 +1,110 @@
+<HEAD><TITLE>Universit&auml;t Bonn, Institut f&uuml;r Informatik, III
+</TITLE>
+</HEAD>
+
+<BODY BACKGROUND="/pics/music2.gif">
+
+<H1 ALIGN=center>
+Department of Computer Science III<BR>Bonn University
+</H1>
+<H3 AlIGN=center> Frank Kurth's Matlab-MIDI Tools </H3>
+<HR SIZE=2 NOSHADE></H3>
+
+<p>
+
+On this page our group provides - free of charge and free of warranty -
+for use of the research community, a small toolbox of utilities for
+handling standard MIDI files (SMFs) under Matlab. The toolbox requires
+Matlab version 5 or higher (tested on Matlab 5, Matlab 6 (Rev. 13)).
+
+<p>
+Our motivation for importing MIDI files into the Matlab environment 
+was primarily to access the MIDI notes. Hence, the primary data structure
+(midi) only containes the note events. Additional information such as system exclusive
+messages are also read from the MIDI files, but only stored in a 
+special structure (ext) as a binary string and not processed further.
+
+<p>
+The following files are contained in the toolbox:
+
+<ul>
+
+<li>
+ <i>midird3.m</i> takes two arguments, the first being the name of the MIDI file.
+If the second, optional, parameter is given, which is as well expected to be a string,
+an additional text file is output containing a textual representation of the
+MIDI file. (E.g., [midi,info,ext,ms_per_quarter,ms_per_tick] = midird3('demo.mid','demo.txt'); produces,
+for the input MIDI file demo.mid, an output text file called demo.txt, as well
+as the matlab structures midi, info and ext which contain the midi data extracted from
+demo.mid.) The numbers ms_per_quarter and ms_per_tick return the time in milliseconds
+per quarter note and per MIDI tick, respectively (if this information is contained
+in the MIDI-file - otherwise, both nombers are set to zero).
+</li>
+
+<li>
+<i>midiwr.m</i> takes four parameters, a file name for the destination MIDI file and
+the structures midi, info and ext (see above). E.g., midiwr('demo2.mid',midi2,info2,ext2);
+creates, for the input structures midi2,info2,ext2, a standard MIDI file called
+demo2.mid corresponding to the input structures.
+
+In particular, [midi,info,ext] = midird3('demo.mid'); midiwr('demo.mid',midi,info,ext);
+should reproduce the original MIDI file demo.mid.
+</li>
+
+<li><i>pianoroll.m</i> creates a (very simple!) piano roll plot of the
+input data (typically given as the midi data structure obtained from midird3, see above).
+</li>
+
+<li><i>MergeTracks.m</i> merges multiple tracks contained in the struct array midi
+into one single track while preserving time consistency (mind that MIDI events
+are time-stamped using delta ticks, i.e., a <i>relative</i> time representation.
+</li>
+
+<li><i>midiTimeCurve.m</i> is a modification of midiwr.m, with syntax 
+
+
+<p>
+<i>newtime=midiTimeCurve(fname,midi,info,ext,timecrv); </i>
+<p>
+
+An output MIDI file
+fname is created from the midi structures midi, info, and ext, where the time axis i
+s modified according to the vector timecrv. As an example, timecrv=[1 2] creates a new 
+MIDI file starting at the same tempo as specified in the midi structures and
+ending with 2x the tempo. In another example, using timecrv=[1 2 1 0.5 1], the
+time-line contained in the midi structures is plit into four parts
+of equal length: during the first part the tempo decreases from 1x to 2x the
+original speed, in the second part it increases back to 1x speed, then
+down to 0.5x speed, and finally back to 1x speed. The value newtime returns
+the new time curve (may be used for visualization purposes, e.g., using plot(newtime)).
+
+<p>
+
+<i>Example:</i> The file 
+BM01A-ModifiedTimeCurve.mid has been generated from the file BM01A.mid
+using the commands
+
+<p><i>[midi,info,ext] = midird3('BM01A.mid');</i>
+
+<p><i>newtime=midiTimeCurve('BM01A-ModifiedTimeCurve.mid',midi,info,ext,[1 2 1 0.5 1]); </i>
+
+</li>
+
+<li><i>midi2note.m</i> is an auxiliary function required by pianoroll.m
+</li>
+
+<li><i>demo.mid</i> and <i>demo.txt</i> are simple demo files -
+the command [midi,info,ext] = midird3('demo.mid','demo.txt'); should reproduce
+the file demo.txt when applied (to the simple MIDI file demo.mid).
+</li>
+
+</ul>
+
+<hr>
+
+<p>For comments (and, of course, to report errors, which should be present in this
+first 'released' version ;-) ), please contact me (frank@cs.uni-bonn.de).
+
+<hr>
+
+</BODY>

@@ -4,19 +4,49 @@
 \item
 
 \item
-\bfseries{Berechnungsvorschriften}
+\textbf{Berechnungsvorschriften} \\
+
+\underline{Gleichstufig:}
+\\
+\begin{align*}
+    f(n) &= a_n \cdot f_0 \\ 
+    a_n &= \sqrt[12]{2}^n \\
+    n &= 0, \,... \, ,127
+\end{align*} 
+\underline{Pythagoräisch:}
+\\
+\\
+Zunächst werden 12 Faktoren berechnet, die den Multiplikatoren für die Referenzfrequenz entsprechen um die erste Oktave zu erhalten.
+Die Faktoren ergeben sich aus Aufeinanderschichtung reiner Quinten und anschließender gegebenfalls mehrfacher Oktavierung nach unten.
+\\
+Von C bis Fis wandert man im Uhrzeigersinn den Quintenzirkel entlang:
 
 \begin{align*}
-    f(n) &= \sqrt[12]{2} * f_0 & \text{Gleichstufig}
+    a_n &= \frac{1.5^n}{2^m} \\
+    n &= 0,  \,... \, ,6
 \end{align*} 
+$m$ gibt an wie oft man durch 2 teilen muss um die durch Quintschichtung erhaltenen Frequenz auf die erste Oktave zurückzuführen, d.h. ein $a_n$ zwischen 1 und 2 zu erhalten.
+\\
+
+Für die restlichen 5 Faktoren, wandert man entgegen dem Uhrzeigersinn den Quintenzirkel entlang, erniedrigt jeweils um eine reine Quinte und oktaviert gegegebenfalls mehrfach, diesmal nach oben.
+
+\begin{align*}
+    a_n &= 1.5^{-(n-6)} \cdot 2^m \\
+    n &= 7, \, ... \, ,11 
+\end{align*}
+
+Die Faktoren $a_n$ werden nun in aufsteigender Reihenfolge sortiert. Die Frequenzen können dann folgendermaßen berechnet werden :
+
+\[
+    f_n = 
+\begin{cases}
+    a_n \cdot f_0,& \text{if } n\leq 11 \\
+    f_{n-12},&\text{if } n> 11
+\end{cases}  
+\]
 
 
-\begin{figure}[H]
-    \center
-    %\includegraphics[width = 0.7\textwidth]{Figures/spectrum3.pdf}
-    \caption{Betragsspektrum von y\_3.wav}
-    \label{fig:bs3}
-\end{figure}
+
 
 
 \end{enumerate}
