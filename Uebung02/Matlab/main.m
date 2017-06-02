@@ -29,5 +29,8 @@ grid on;
 
 
 %% b)
+t1eq = createNotes(MIDItrack1,equalTemperamentScale);
+t1py = createNotes(MIDItrack1,pythagoreanScale);
 
-MIDItrack1Matrix = createNotes(MIDItrack1,equalTemperamentScale);
+t2eq = createNotes(MIDItrack2,equalTemperamentScale);
+t2py = createNotes(MIDItrack2,pythagoreanScale);
