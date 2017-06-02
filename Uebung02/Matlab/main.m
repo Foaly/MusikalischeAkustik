@@ -34,3 +34,9 @@ t1py = createNotes(MIDItrack1,pythagoreanScale);
 
 t2eq = createNotes(MIDItrack2,equalTemperamentScale);
 t2py = createNotes(MIDItrack2,pythagoreanScale);
+
+
+%% Aufgabe 3
+
+%% a)
+t1eqSine = sineSynth(t1eq, 44100);
