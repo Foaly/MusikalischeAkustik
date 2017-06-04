@@ -24,19 +24,22 @@ grid on;
 
 %% a)
 
-[MIDItrack1, MIDIinfo1] = midird3('BWV_846.mid');
-[MIDItrack2, MIDIinfo2] = midird3('BWV_858.mid');
+[MIDItrack1, MIDIinfo1, ext1, ms_per_quarter1, ms_per_tick1] = midird3('BWV_846.mid');
+[MIDItrack2, MIDIinfo2, ext2,  ms_per_quarter2, ms_per_tick2] = midird3('BWV_858.mid');
 
 
 %% b)
-t1eq = createNotes(MIDItrack1,equalTemperamentScale);
-t1py = createNotes(MIDItrack1,pythagoreanScale);
+t1eq = createNotes(MIDItrack1,ms_per_tick1,equalTemperamentScale);
+t1py = createNotes(MIDItrack1,ms_per_tick1,pythagoreanScale);
 
-t2eq = createNotes(MIDItrack2,equalTemperamentScale);
-t2py = createNotes(MIDItrack2,pythagoreanScale);
+t2eq = createNotes(MIDItrack2,ms_per_tick2,equalTemperamentScale);
+t2py = createNotes(MIDItrack2,ms_per_tick2,pythagoreanScale);
 
 
 %% Aufgabe 3
 
 %% a)
 t1eqSine = sineSynth(t1eq, 44100);
+%t2eqSine = sineSynth(t2eq, 44100);
+
+audiowrite('t1eqSine.wav', t1eqSine, 44100);
