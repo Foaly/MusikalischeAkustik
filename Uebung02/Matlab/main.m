@@ -36,18 +36,18 @@ t2eq = createNotes(MIDItrack2,ms_per_tick2,equalTemperamentScale);
 t2py = createNotes(MIDItrack2,ms_per_tick2,pythagoreanScale);
 
 %% c)
-chromagram(MIDItrack1, 1, 'Chromagram BMV\_846');
-chromagram(MIDItrack2, 2, 'Chromagram BMV\_858');
+chromagram(MIDItrack1, 1, 'Chromagramm BMV\_846');
+chromagram(MIDItrack2, 2, 'Chromagramm BMV\_858');
 
 %% Aufgabe 3
 
 %% a)
-t1eqSine = synthesize(t1eq, 44100,0, 0, 1, 'Sine');
+%t1eqSine = synthesize(t1eq, 44100,0, 0, 1, 'Sine');
 
 %audiowrite('t1eqSine_3a.wav', t1eqSine, 44100);
 
 %% b)
-t1eqSine = synthesize(t1eq, 44100,0.05,0.05,1 , 'Sine');
+%t1eqSine = synthesize(t1eq, 44100,0.05,0.05,1 , 'Sine');
 %audiowrite('t1eqSine_3b.wav', t1eqSine, 44100);
 
 figure;
@@ -67,14 +67,14 @@ title('Decay');
 %% Aufgabe 4
 
 %% a)
-t1eqSine = synthesize(t1eq, 44100,0.05,0.05,3, 'Sine');
+%t1eqSine = synthesize(t1eq, 44100,0.05,0.05,3, 'Sine');
 %audiowrite('t1eqSine_4a.wav', t1eqSine, 44100);
 
 %% Zusatzaufgabe
 
-t1eqKarplus = synthesize(t1eq, 44100, 0.05, 0.05, 19, 'Karplus');
-audiowrite('t1eqKarplus.wav', t1eqKarplus, 44100);
+%t1eqKarplus = synthesize(t1eq, 44100, 0.05, 0.05, 19, 'Karplus');
+%audiowrite('t1eqKarplus.wav', t1eqKarplus, 44100);
 
-t2eqKarplus = synthesize(t2eq, 44100, 0.05, 0.05, 19, 'Karplus');
-audiowrite('t2eqKarplus.wav', t2eqKarplus, 44100);
+%t2eqKarplus = synthesize(t2eq, 44100, 0.05, 0.05, 19, 'Karplus');
+%audiowrite('t2eqKarplus.wav', t2eqKarplus, 44100);
 
