@@ -39,7 +39,7 @@ t2py = createNotes(MIDItrack2,ms_per_tick2,pythagoreanScale);
 %% Aufgabe 3
 
 %% a)
-t1eqSine = sineSynth(t1eq, 44100,0.05, 0.05);
+t1eqSine = sineSynth(t1eq, 44100,0.05, 0.05, 3);
 %t2eqSine = sineSynth(t2eq, 44100);
 
 audiowrite('t1eqSine.wav', t1eqSine, 44100);
