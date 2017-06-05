@@ -1,4 +1,4 @@
-function [output, tracklength] = createNotes(midiIn, ms_per_tick, scale)
+function [output] = createNotes(midiIn, ms_per_tick, scale)
     output = zeros(0);
     % iterate through all tracks inside the cell
     for i = 1:size(midiIn,2)
