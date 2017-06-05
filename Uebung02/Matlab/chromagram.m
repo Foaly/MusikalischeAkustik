@@ -1,10 +1,10 @@
-function [] = chromagram (MIDItrack, channel)
+function [] = chromagram (MIDItrack, channel, name)
     notes = MIDItrack{1,channel}(:,3);
     notes = mod(notes, 12);
     figure;
     h = histogram(notes);
     h.FaceColor = 'k';
-    title('Chromagram');
+    title(name);
     ylabel('Occurrences');
     xlim([-1 12]);
     xticks([0 1 2 3 4 5 6 7 8 9 10 11 12])

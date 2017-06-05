@@ -36,8 +36,8 @@ t2eq = createNotes(MIDItrack2,ms_per_tick2,equalTemperamentScale);
 t2py = createNotes(MIDItrack2,ms_per_tick2,pythagoreanScale);
 
 %% c)
-chromagram(MIDItrack1, 1);
-chromagram(MIDItrack2, 2);
+chromagram(MIDItrack1, 1, 'Chromagram BMV\_846');
+chromagram(MIDItrack2, 2, 'Chromagram BMV\_858');
 
 %% Aufgabe 3
 
