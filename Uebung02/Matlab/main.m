@@ -15,7 +15,7 @@ diff = [0 -10 4 -6 8 -2 +11 +2 -8 +6 -4 +10 0];
 bar(diff, 'k');
 ylim([-12 12]);
 xticks([1 2 3 4 5 6 7 8 9 10 11 12 13])
-xticklabels({'C','Des/Cis','D','Es/Dis','E','F','Ges/Fis', 'G', 'As/Gis', 'A', 'As/B', 'H', 'C'})
+xticklabels({'C','Des/Cis','D','Es/Dis','E','F','Ges/Fis', 'G', 'As/Gis', 'A', 'Ais/B', 'H', 'C'})
 ylabel('Unterschied in Cent');
 grid on;
 
@@ -42,19 +42,9 @@ chromagram(MIDItrack2, 2, 'Chromagramm BMV\_858');
 %% Aufgabe 3
 
 %% a)
-<<<<<<< Updated upstream
-%t1eqSine = synthesize(t1eq, 44100,0, 0, 1, 'Sine');
-
-%audiowrite('t1eqSine_3a.wav', t1eqSine, 44100);
-
-%% b)
-%t1eqSine = synthesize(t1eq, 44100,0.05,0.05,1 , 'Sine');
-%audiowrite('t1eqSine_3b.wav', t1eqSine, 44100);
-=======
 % siehe synthesize.m
 
 %% b)
->>>>>>> Stashed changes
 
 figure;
 subplot(1,2,1);
@@ -103,22 +93,22 @@ audiowrite('t2pySineEnv.wav', t2pySineEnv, fs);
 %% Aufgabe 4
 
 %% a)
-t1eqSineOver = synthesize(t1eq, fs, 0.05, 0.05, 19, 'Sine');
+t1eqSineOver = synthesize(t1eq, fs, 0.05, 0.05, 20, 'Sine');
 audiowrite('t1eqSineOver.wav', t1eqSineOver, fs);
 
-t1pySineOver = synthesize(t1py, fs, 0.05, 0.05, 19, 'Sine');
+t1pySineOver = synthesize(t1py, fs, 0.05, 0.05, 20, 'Sine');
 audiowrite('t1pySineOver.wav', t1pySineOver, fs);
 
-t2eqSineOver = synthesize(t2eq, fs, 0.05, 0.05, 19, 'Sine');
+t2eqSineOver = synthesize(t2eq, fs, 0.05, 0.05, 20, 'Sine');
 audiowrite('t2eqSineOver.wav', t2eqSineOver, fs);
 
-t2pySineOver = synthesize(t2py, fs, 0.05, 0.05, 19, 'Sine');
+t2pySineOver = synthesize(t2py, fs, 0.05, 0.05, 20, 'Sine');
 audiowrite('t2pySineOver.wav', t2pySineOver, fs);
 
 %% Zusatzaufgabe
 
-t1eqKarplus = synthesize(t1eq, fs, 0, 0, 19, 'Karplus');
+t1eqKarplus = synthesize(t1eq, fs, 0, 0, 20, 'Karplus');
 audiowrite('t1eqKarplus.wav', t1eqKarplus, fs);
 
-t2eqKarplus = synthesize(t2eq, fs, 0, 0, 19, 'Karplus');
+t2eqKarplus = synthesize(t2eq, fs, 0, 0, 20, 'Karplus');
 audiowrite('t2eqKarplus.wav', t2eqKarplus, fs);
