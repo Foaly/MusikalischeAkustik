@@ -70,4 +70,11 @@ title('Decay');
 t1eqSine = synthesize(t1eq, 44100,0.05,0.05,3, 'Sine');
 %audiowrite('t1eqSine_4a.wav', t1eqSine, 44100);
 
+%% Zusatzaufgabe
+
+t1eqKarplus = synthesize(t1eq, 44100, 0.05, 0.05, 19, 'Karplus');
+audiowrite('t1eqKarplus.wav', t1eqKarplus, 44100);
+
+t2eqKarplus = synthesize(t2eq, 44100, 0.05, 0.05, 19, 'Karplus');
+audiowrite('t2eqKarplus.wav', t2eqKarplus, 44100);
 
