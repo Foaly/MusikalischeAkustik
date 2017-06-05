@@ -35,15 +35,41 @@ t1py = createNotes(MIDItrack1,ms_per_tick1,pythagoreanScale);
 t2eq = createNotes(MIDItrack2,ms_per_tick2,equalTemperamentScale);
 t2py = createNotes(MIDItrack2,ms_per_tick2,pythagoreanScale);
 
+%% c)
+chromagram(MIDItrack1, 1);
+chromagram(MIDItrack2, 2);
 
 %% Aufgabe 3
 
 %% a)
-t1eqSine = sineSynth(t1eq, 44100,0.05, 0.05, 3);
-%t2eqSine = sineSynth(t2eq, 44100);
+t1eqSine = sineSynth(t1eq, 44100,0,0,1);
 
-audiowrite('t1eqSine.wav', t1eqSine, 44100);
+%audiowrite('t1eqSine_3a.wav', t1eqSine, 44100);
 
-%% c)
-chromagram(MIDItrack1, 1);
-chromagram(MIDItrack2, 2);
+%% b)
+t1eqSine = sineSynth(t1eq, 44100,0.05,0.05,1);
+%audiowrite('t1eqSine_3b.wav', t1eqSine, 44100);
+
+figure;
+subplot(1,2,1);
+plot(envelope_(ceil(44100*0.05), 0));
+xlim([0 ceil(44100*0.05)]);
+xlabel('samplenumber');
+ylabel('value');
+title('Attack');
+subplot(1,2,2);
+plot(envelope_(ceil(44100*0.05),1));
+xlim([0 ceil(44100*0.05)]);
+xlabel('samplenumber');
+ylabel('value');
+title('Decay');
+
+%% Aufgabe 4
+
+%% a)
+t1eqSine = sineSynth(t1eq, 44100,0.05,0.05,3);
+%audiowrite('t1eqSine_4a.wav', t1eqSine, 44100);
+
+
+
+
