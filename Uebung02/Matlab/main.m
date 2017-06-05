@@ -42,6 +42,7 @@ chromagram(MIDItrack2, 2, 'Chromagramm BMV\_858');
 %% Aufgabe 3
 
 %% a)
+<<<<<<< Updated upstream
 %t1eqSine = synthesize(t1eq, 44100,0, 0, 1, 'Sine');
 
 %audiowrite('t1eqSine_3a.wav', t1eqSine, 44100);
@@ -49,6 +50,11 @@ chromagram(MIDItrack2, 2, 'Chromagramm BMV\_858');
 %% b)
 %t1eqSine = synthesize(t1eq, 44100,0.05,0.05,1 , 'Sine');
 %audiowrite('t1eqSine_3b.wav', t1eqSine, 44100);
+=======
+% siehe synthesize.m
+
+%% b)
+>>>>>>> Stashed changes
 
 figure;
 subplot(1,2,1);
@@ -64,17 +70,55 @@ xlabel('samplenumber');
 ylabel('value');
 title('Decay');
 
+%% c)
+fs = 44100;
+
+% No envelope
+t1eqSine = synthesize(t1eq, fs, 0, 0, 1, 'Sine');
+audiowrite('t1eqSine.wav', t1eqSine, fs);
+
+t1pySine = synthesize(t1py, fs, 0, 0, 1, 'Sine');
+audiowrite('t1pySine.wav', t1pySine, fs);
+
+t2eqSine = synthesize(t2eq, fs, 0, 0, 1, 'Sine');
+audiowrite('t2eqSine.wav', t2eqSine, fs);
+
+t2pySine = synthesize(t2py, fs, 0, 0, 1, 'Sine');
+audiowrite('t2pySine.wav', t2pySine, fs);
+
+
+% With envelope
+t1eqSineEnv = synthesize(t1eq, fs, 0.05, 0.05, 1, 'Sine');
+audiowrite('t1eqSineEnv.wav', t1eqSineEnv, fs);
+
+t1pySineEnv = synthesize(t1py, fs, 0.05, 0.05, 1, 'Sine');
+audiowrite('t1pySineEnv.wav', t1pySineEnv, fs);
+
+t2eqSineEnv = synthesize(t2eq, fs, 0.05, 0.05, 1, 'Sine');
+audiowrite('t2eqSineEnv.wav', t2eqSineEnv, fs);
+
+t2pySineEnv = synthesize(t2py, fs, 0.05, 0.05, 1, 'Sine');
+audiowrite('t2pySineEnv.wav', t2pySineEnv, fs);
+
 %% Aufgabe 4
 
 %% a)
-%t1eqSine = synthesize(t1eq, 44100,0.05,0.05,3, 'Sine');
-%audiowrite('t1eqSine_4a.wav', t1eqSine, 44100);
+t1eqSineOver = synthesize(t1eq, fs, 0.05, 0.05, 19, 'Sine');
+audiowrite('t1eqSineOver.wav', t1eqSineOver, fs);
+
+t1pySineOver = synthesize(t1py, fs, 0.05, 0.05, 19, 'Sine');
+audiowrite('t1pySineOver.wav', t1pySineOver, fs);
+
+t2eqSineOver = synthesize(t2eq, fs, 0.05, 0.05, 19, 'Sine');
+audiowrite('t2eqSineOver.wav', t2eqSineOver, fs);
+
+t2pySineOver = synthesize(t2py, fs, 0.05, 0.05, 19, 'Sine');
+audiowrite('t2pySineOver.wav', t2pySineOver, fs);
 
 %% Zusatzaufgabe
 
-%t1eqKarplus = synthesize(t1eq, 44100, 0.05, 0.05, 19, 'Karplus');
-%audiowrite('t1eqKarplus.wav', t1eqKarplus, 44100);
+t1eqKarplus = synthesize(t1eq, fs, 0, 0, 19, 'Karplus');
+audiowrite('t1eqKarplus.wav', t1eqKarplus, fs);
 
-%t2eqKarplus = synthesize(t2eq, 44100, 0.05, 0.05, 19, 'Karplus');
-%audiowrite('t2eqKarplus.wav', t2eqKarplus, 44100);
-
+t2eqKarplus = synthesize(t2eq, fs, 0, 0, 19, 'Karplus');
+audiowrite('t2eqKarplus.wav', t2eqKarplus, fs);

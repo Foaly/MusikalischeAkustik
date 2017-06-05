@@ -19,7 +19,7 @@ function [out] = synthesize(in, fs, attack, decay, overtones, type)
 
             % generate samples
             if (strcmp(type,'Karplus'))
-                samples = amp / o * Karplus(fs, frq, duration, filter, gain, false);
+                samples = amp / o * Karplus(fs, frq * o, duration, filter, gain, false);
             else
                 samples = genSine(amp / o, frq * o, fs, duration, 0);
             end
@@ -27,20 +27,19 @@ function [out] = synthesize(in, fs, attack, decay, overtones, type)
             % apply envelope
             env_attack = envelope_(attack, 0);
             env_decay = envelope_(decay, 1);
-            for j = 1:env_attack
+            for j = 1:size(env_attack, 1)
                 samples(j) = samples(j) * env_attack(j);
             end
-            for j = size(samples,1) - env_decay + 1:size(samples,1)
-                samples(j,1) = samples(j,1) * env_decay(j - (size(samples,1) - env_decay),1);
+            decayStartOffset = size(samples,1) - size(env_decay, 1);
+            for j = decayStartOffset + 1:size(samples,1)
+                samples(j,1) = samples(j,1) * env_decay(j - decayStartOffset,1);
             end
 
             % add enveloped sine signal to whole signal
             startsample = ceil(fs * in(i,1));
-            length = size(samples,1) - 1;
-            for j = 0:length
-                index = startsample + j;
-                out(index) = out(index) + samples(j + 1);
-            end
+            endsample = ceil(fs * in(i,2));
+            length = endsample - startsample;
+            out(startsample+1:endsample) = out(startsample+1:endsample) + samples(1:length);
         end
     end
 
