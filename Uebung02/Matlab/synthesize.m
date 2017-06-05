@@ -15,6 +15,7 @@ function [out] = synthesize(in, fs, attack, decay, overtones, type)
         frq = in(i,3);
         duration = in(i,2) - in(i,1);
 
+        % the first one is the fundamental frequency
         for o = 1:overtones
 
             % generate samples
