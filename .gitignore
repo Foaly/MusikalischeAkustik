@@ -28,3 +28,7 @@
 # Matlab
 *.asv
 *.m~
+
+# Soundfiles
+*.wav
+*.mp3
