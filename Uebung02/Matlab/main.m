@@ -43,3 +43,7 @@ t1eqSine = sineSynth(t1eq, 44100,0.05);
 %t2eqSine = sineSynth(t2eq, 44100);
 
 audiowrite('t1eqSine.wav', t1eqSine, 44100);
+
+%% c)
+chromagram(MIDItrack1, 1);
+chromagram(MIDItrack2, 2);
