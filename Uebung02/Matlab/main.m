@@ -42,12 +42,12 @@ chromagram(MIDItrack2, 2);
 %% Aufgabe 3
 
 %% a)
-t1eqSine = sineSynth(t1eq, 44100,0,0,1);
+t1eqSine = synthesize(t1eq, 44100,0, 0, 1, 'Sine');
 
 %audiowrite('t1eqSine_3a.wav', t1eqSine, 44100);
 
 %% b)
-t1eqSine = sineSynth(t1eq, 44100,0.05,0.05,1);
+t1eqSine = synthesize(t1eq, 44100,0.05,0.05,1 , 'Sine');
 %audiowrite('t1eqSine_3b.wav', t1eqSine, 44100);
 
 figure;
@@ -67,9 +67,7 @@ title('Decay');
 %% Aufgabe 4
 
 %% a)
-t1eqSine = sineSynth(t1eq, 44100,0.05,0.05,3);
+t1eqSine = synthesize(t1eq, 44100,0.05,0.05,3, 'Sine');
 %audiowrite('t1eqSine_4a.wav', t1eqSine, 44100);
-
-
 
 
