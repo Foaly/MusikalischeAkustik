@@ -18,7 +18,7 @@ function [out] = synthesize(in, fs, attack, decay, overtones, type)
         for o = 1:overtones
 
             % generate samples
-            if (type == 'Karplus')
+            if (strcmp(type,'Karplus'))
                 samples = amp / o * Karplus(fs, frq, duration, filter, gain, false);
             else
                 samples = genSine(amp / o, frq * o, fs, duration, 0);
