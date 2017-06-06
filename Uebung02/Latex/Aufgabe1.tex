@@ -2,27 +2,27 @@
 
 \begin{enumerate}[a)]
 \item
-Siehe MATLAB-Code:
-\begin{itemize}
+    Siehe MATLAB-Code:
+    \begin{itemize}
+    \item
+    EqualTemperamentScale.m 
+    \item
+    PythagoreanScale.m
+    \end{itemize}
 \item
-EqualTemperamentScale.m 
-\item
-PythagoreanScale.m
-\end{itemize}
-\item
+\label{sec:1b}
 Um die gleichstufige und die pythagoräische Skala zu konstruieren, haben wir folgende Berechnungsvorschriften verwendet:
 
 \underline{Gleichstufig:}
-\\
 \begin{align*}
     f(n) &= a_n \cdot f_0 \\ 
-    a_n &= \sqrt[12]{2}^n & n \in \{n &= 0, \,... \, ,127\}
+    a_n &= \sqrt[12]{2}^n & n \in \{0, \,... \, ,127\}
 \end{align*} 
 \underline{Pythagoräisch:}
 \\
 \\
 Zunächst werden 12 Faktoren berechnet, die den Multiplikatoren für die Referenzfrequenz entsprechen um die erste Oktave zu erhalten.
-Die Faktoren ergeben sich aus Aufeinanderschichtung reiner Quinten und anschließender gegebenfalls mehrfacher Oktavierung nach unten.
+Die Faktoren ergeben sich aus Aufeinanderschichtung reiner Quinten und anschließender gegebenenfalls mehrfacher Oktavierung nach unten.
 \\
 Von C bis Fis wandert man im Uhrzeigersinn den Quintenzirkel entlang:
 
@@ -32,13 +32,13 @@ Von C bis Fis wandert man im Uhrzeigersinn den Quintenzirkel entlang:
 $m$ gibt an wie oft man durch 2 teilen muss um die durch Quintschichtung erhaltenen Frequenz auf die erste Oktave zurückzuführen, d.h. ein $a_n$ zwischen 1 und 2 zu erhalten.
 \\
 
-Für die restlichen 5 Faktoren, wandert man entgegen dem Uhrzeigersinn den Quintenzirkel entlang, erniedrigt jeweils um eine reine Quinte und oktaviert gegegebenfalls mehrfach, diesmal nach oben.
+Für die restlichen 5 Faktoren, wandert man entgegen dem Uhrzeigersinn den Quintenzirkel entlang, erniedrigt jeweils um eine reine Quinte und oktaviert gegebenenfalls mehrfach, diesmal nach oben.
 
 \begin{align*}
     a_n &= 1.5^{-(n-6)} \cdot 2^m & n \in \{ 7, \, ... \, ,11 \}
 \end{align*}
 
-Die Faktoren $a_n$ werden nun in aufsteigender Reihenfolge sortiert. Die Frequenzen können dann folgendermaßen berechnet werden :
+Die Faktoren $a_n$ werden nun in aufsteigender Reihenfolge sortiert. Die Frequenzen können dann folgendermaßen berechnet werden:
 
 \[
     f_n = 
@@ -52,7 +52,7 @@ Im Code wurde für den letzten Teil eine nicht-rekursive Berechnung verwendet, u
 
 \item
 
-In Tabelle \ref{tab:t1} sind die ersten 12 berechneten Frequenzen oberhalb unseres gewählten Referenztons C$_{2}$ bzw. 16.352 Hz für die zwei Stimmungen aufgelistet. Zudem sind die Frequenzverhältnisse zum Grundton innerhalb dieser Oktave zu sehen, welche den Faktoren $a_n$ aus 1b) entsprechen. Diese Verhältnisse lassen sich in das additive Maß \glqq Musikalische Cent \grqq umrechnen, welches auf die gleichstufige Stimmung geeicht ist, in der ein Halbton genau 100 Cent entspricht. Die Formel zur Berechung bei gegebenem Frequenzverhältnis $p$ eines Intervalls $i$ lautet:
+In Tabelle \ref{tab:t1} sind die ersten 12 berechneten Frequenzen oberhalb unseres gewählten Referenztons C$_{2}$ bzw. 16.352 Hz für die zwei Stimmungen aufgelistet. Zudem sind die Frequenzverhältnisse zum Grundton innerhalb dieser Oktave zu sehen, welche den Faktoren $a_n$ aus Aufgabenteil \ref{sec:1b}) entsprechen. Diese Verhältnisse lassen sich in das additive Maß \glqq Musikalische Cent\grqq umrechnen, welches auf die gleichstufige Stimmung geeicht ist, in der ein Halbton genau 100 Cent entspricht. Die Formel zur Berechnung bei gegebenem Frequenzverhältnis $p$ eines Intervalls $i$ lautet:
 
 \begin{align*}
     i = 1200 \cdot \frac{\mathrm{log}(p)}{\mathrm{log} 2} \mathrm{Cent}
