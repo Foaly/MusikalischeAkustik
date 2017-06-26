@@ -1,6 +1,5 @@
 \input{header.tex}
-\ihead{\includegraphics[height=8pt]{akt.png}~\includegraphics[height=8pt]{tu.png} Psychoakustik und Tonsysteme}
-\usepackage{amsmath}
+\ihead{\parbox[b]{0.51\textwidth}{\includegraphics[height=8pt]{akt.png}~\includegraphics[height=8pt]{tu.png} Audio Feature Extraction}\vspace*{0.01mm}}
 \begin{document}
 
 %--------------------------------
@@ -9,22 +8,18 @@
 
 %--------------------------------
 
-%\pagenumbering{Roman}
+\pagenumbering{Roman}
+\renewcommand{\thesubsection}{\alph{subsection}}
 
 %\tableofcontents   
 
-%\clearpage
+\clearpage
 
 %--------------------------------
 
-%\pagenumbering{arabic}
-%\renewcommand{\thesection}{\alph{}}
+\pagenumbering{arabic}
 
 \include{Aufgabe1}
-\include{Aufgabe2}
-\include{Aufgabe3}
-\include{Aufgabe4}
-\include{Aufgabe5}
 
 \clearpage
 
@@ -32,7 +27,8 @@
 
 \pagenumbering{Alph}
 
-\bibliography{literatur}
+%\bibliographystyle{plain}
+%\bibliography{literatur}
 %\listoffigures
 %\listoftables
 

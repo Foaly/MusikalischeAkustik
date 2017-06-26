@@ -32,3 +32,5 @@
 # Soundfiles
 *.wav
 *.mp3
+
+.idea
