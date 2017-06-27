@@ -1,8 +1,24 @@
 \section{Vorbereitung}
 \label{sec:preperation}
-\subsection{}
-Wir haben den Ordner Audio mit den enthaltenen Samples in denselben Ordner gepackt
 
+\subsection{}
+Wir haben den Ordner mit den Audiodateien wie vorgesehen eingebunden.
+Der Pfad zu diesem Ordner lässt sich vom Nutzer einfach konfigurieren, indem der Pfad in Zeile 2 der main.m angepasst wird.
+
+\subsection{}
+Das Einbinden der Timbre Toolbox (TTB) erwies sich als wesentlich komplizierter als beschrieben.
+Nach dem Einbinden des TTB Ordners in den Matlab Pfad, stellte sich heraus, dass der Code nicht mehr unterstützte Matlab Funktionen verwendet.
+Um die TTB mit Matlab in der Version \texttt{R2016b} verwenden zu können, musste in der Datei \texttt{cSound.m} die Zeile 53 gegen folgende Zeilen ausgetauscht werden:
+
+\begin{lstlisting}
+[c.f_Sig_v, c.f_Fs] = audioread(c.w_FileName);
+info                = audioinfo(c.w_FileName);
+c.i_Bits            = int16(info.BitsPerSample);
+\end{lstlisting}
+
+Das Hinzufügen der Datei für den SWIPE-Algorithmus\footnote{\url{http://www.cise.ufl.edu/~acamacho/publications/swipep.m}} erwies sich als äußerst schwierig.
+Wenn die Datei, wie in der Dokumentation beschrieben, in den Pfad \texttt{\$TTB\_ROOT\_DIR/classes/cHarmRep/} eingefügt wurde, fand Matlab die Funktion \texttt{swipep} selbst nach Einbinden der Datei in den Pfad nicht.
+Nach langem Rumprobieren gelang es das Problem zu lösen, indem die Datei \texttt{swipep.m} aus dem \texttt{cHarmRep} Ordner ins Basisverzeichnis neben die \texttt{main.m} Datei verschoben wurde.
 
 \section{Analyse}
 \label{sec:analyse}
@@ -12,6 +28,10 @@ Wir haben den Ordner Audio mit den enthaltenen Samples in denselben Ordner gepac
 
 \section{Clustering}
 \label{sec:cluster}
+
+Anmerkung:
+
+Im dritten Aufgabenteil haben wir die mit Hilfe der Timbre Toolbox extrahierten Features in Matlab mit Python weiter verarbeitet und grafisch aufbereitet.
 
 \subsection{}
 
@@ -54,28 +74,28 @@ Dies hätten wir eigentlich auch bei den anderen leistungsunabhängigen Größen
     \center
     \includegraphics[width = 0.8\textwidth]{Figures/harmonicErg}
     \caption{Harmonic Energy}
-    \label{fig:im}
+    \label{fig:harmonic_energy}
 \end{figure}
 
 \begin{figure}[H]
     \center
     \includegraphics[width = 0.8\textwidth]{Figures/rel.pdf}
     \caption{Release Time}
-    \label{fig:im}
+    \label{fig:release_time}
 \end{figure}
 
 \begin{figure}[H]
     \center
     \includegraphics[width = 0.8\textwidth]{Figures/specSkew.pdf}
     \caption{Spectral Skew}
-    \label{fig:im}
+    \label{fig:spectral_skew}
 \end{figure}
 
 \begin{figure}[H]
     \center
     \includegraphics[width = 0.8\textwidth]{Figures/att.pdf}
     \caption{Attack Time}
-    \label{fig:im}
+    \label{fig:attack_time}
 \end{figure}
 
 
