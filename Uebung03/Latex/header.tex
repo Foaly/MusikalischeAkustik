@@ -1,5 +1,9 @@
 % Nehme andere Verzeichnise ins Inhaltsverzeichnis auf
-\documentclass[listof=totoc,bibliography=totoc]{scrreprt}
+\documentclass[listof=totoc,bibliography=totoc]{article}
+% scrreprt
+
+% zeige Header & Footer auch auf Kapitelseiten
+%\renewcommand*\chapterpagestyle{scrheadings}
 
 % character encoding
 \usepackage[utf8]{inputenc}
@@ -24,8 +28,6 @@
 \usepackage[automark, headsepline, footsepline]{scrlayer-scrpage}
 \clearpairofpagestyles
 \pagestyle{scrheadings}
-% zeige Header & Footer auch auf Kapitelseiten
-\renewcommand*\chapterpagestyle{scrheadings}
 
 \automark{section}
 \ohead{\parbox[b]{0.49\textwidth}{\raggedleft\headmark}\vspace*{0.01mm}}
