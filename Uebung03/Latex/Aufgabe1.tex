@@ -26,17 +26,27 @@ Spielt man eine Violine mit mehr Dynamik, treten die Obertöne stärker hervor.
 %Das heißt die harmonischen Frequenzen der Grundfrequenz haben größere Amplituden im Verhältnis zur Grundfrequenz als wenn man den Bogen nur langsam und mit wenig Druck über die Saite streicht.  
 %Die daraus folgende Änderung in der Gestalt des Frequenzspektrums lässt sich mit den zwei Deskriptoren Spectral Skewness, welche die Asymetrie des Spektrums beschreibt und Spectral Kurtosis, welche die Ähnlichkeit des Spektrums zu einer Gaußkurve beschreibt quantifizieren. 
 Wenn man also den Bogen schnell und mit viel Druck über die Saite streicht liefern die harmonischen Frequenzen, also die Vielfachen der Grundfrequenz, größere Energiebeiträge im Verhältnis zur Gesamtenergie, welche auch den Anteil inharmonischer bzw. geräuschhafte Anteile enthält.  
-Eine harmonischer Deskriptor, der diesen Effekt gut beschreibt ist die \textit{Harmonic Energy}. Sie gibt das Verhältnis der durch Partialtöne erklärten Energie zur Gesamtenergie an. Da es sich um einen zeitabhängigen Deskriptor handelt, gibt uns die Timbre Toolbox den Median als einzelnen Wert für ein Sample.\\ 
+Eine harmonischer Deskriptor, der diesen Effekt gut beschreibt ist die \textit{Harmonic Energy}.
+Sie gibt das Verhältnis der durch Partialtöne erklärten Energie zur Gesamtenergie an.
+Da es sich um einen zeitabhängigen Deskriptor handelt, gibt uns die Timbre Toolbox den Median als einzelnen Wert für ein Sample.\\ 
 %Diese Tatsache lässt sich in der Theorie am besten mit dem harmonischen Deskriptor \textit{Tristumuls} beschreiben (Lit.verweis zum Paper).
 %Dieser setzt sich aus drei Werten $T_1$, $T_2$ und $T_3$ zusammen.
 %$T_1$ ist das Verhältnis der Energie der Grundfrequenz zur Gesamtenergie des Signals. Dieser Wert sollte also größer sein bei leise gespielten Tönen. 
 %$T_2$ ist das Verhältnis der Energie des ersten, zweiten und dritten Obertons zur Gesamtenergie und sollte demnach kleiner sein bei leise gespielten Tönen.\\
-Derselbe Effekt lässt sich auch mithilfe eines spektralen Features beschreiben. Die \textit{Spectral Skewness} beschreibt die Asymmetrie des Spektrums um den Spectral Centroid herum. Wir erwarten hier auch unterschiedliche Werte, da aufgrund der angereicherten Obertöne bei lauter Spielweise ein stärkeres Gewicht bei hohen Frequenzen liegen sollte, also rechts vom Spectral centroid. Da dieser Deskriptor ebenfalls zeitabhängig ist, betrachten wir wieder den Median.\\
-Beim Spielen lauter Töne wird zudem der Ton schneller aufgebaut, was mit der Geschwindigkeit des Bogens zusammenhängt. Außerdem wird der Bogen bei leise gespielten Tönen langsamer von der Saite weggenommen. Diese beiden Merkmale lassen sich mit den temporalen Deskriptoren \textit{Attack Time} und \textit{Release Time} erfassen. \\
+Derselbe Effekt lässt sich auch mithilfe eines spektralen Features beschreiben.
+Die \textit{Spectral Skewness} beschreibt die Asymmetrie des Spektrums um den Spectral Centroid herum.
+Wir erwarten hier auch unterschiedliche Werte, da aufgrund der angereicherten Obertöne bei lauter Spielweise ein stärkeres Gewicht bei hohen Frequenzen liegen sollte, also rechts vom Spectral centroid.
+Da dieser Deskriptor ebenfalls zeitabhängig ist, betrachten wir wieder den Median.
 
-\subsection{}
+Beim Spielen lauter Töne wird zudem der Ton schneller aufgebaut, was mit der Geschwindigkeit des Bogens zusammenhängt.
+Außerdem wird der Bogen bei leise gespielten Tönen langsamer von der Saite weggenommen.
+Diese beiden Merkmale lassen sich mit den temporalen Deskriptoren \textit{Attack Time} und \textit{Release Time} erfassen.
+
+\subsection{Test}
 Wir gehen davon aus, dass die analysierten Violinen-Samples unter gleichbleibenden Aufnahmebedingungen entstanden sind. 
-Deswegen sollte die Dynamikstufe mit der Leistung verknüpft sein, d.h. lauter Spielen gibt uns mehr Energie pro Zeiteinheit, wenn wir die in Abschnitt a. beschriebenen Schwankungen außer Beracht lassen. Wir verwenden deswegen die \textit{Frame Energy} als leistungsabhängiges Feature. \\
+Deswegen sollte die Dynamikstufe mit der Leistung verknüpft sein, d.h. lauter Spielen gibt uns mehr Energie pro Zeiteinheit, wenn wir die in Abschnitt a. beschriebenen Schwankungen außer Beracht lassen.
+Wir verwenden deswegen die \textit{Frame Energy} als leistungsabhängiges Feature.
+
 Beim Blick auf die Scatterplots (siehe figures!!) sehen wir allerdings nur beim Deskriptor Harmonic Energy eine deutliche Korrelation mit der Frame Energy. 
 Dies hätten wir eigentlich auch bei den anderen leistungsunabhängigen Größen erwartet hätten, sofern wir die Frame Energy als direkten Indikator für Dynamik ansehen.
 

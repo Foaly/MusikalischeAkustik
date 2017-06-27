@@ -39,24 +39,25 @@ def main():
     plt.scatter(frameErg, harmonicErg)
     plt.xlabel("Frame Energy")
     plt.ylabel("Harmonic Energy")
-    plt.show()
+    #plt.show()
 
     plt.scatter(frameErg, rel)
     plt.xlabel("Frame Energy")
     plt.ylabel("Release Time")
-    plt.show()
+    #plt.show()
 
     plt.scatter(frameErg, specSkew)
     plt.xlabel("Frame Energy")
     plt.ylabel("Spectral Skew")
-    plt.show()
+    #plt.show()
 
     plt.scatter(frameErg, att)
     plt.xlabel("Frame Energy")
     plt.ylabel("Attack Time")
-    plt.show()
+    #plt.show()
 
     # Aufgabe 3 d)
+    KMeans()
 
 
 
