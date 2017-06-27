@@ -31,12 +31,11 @@ Die Matrizen der extrahierten Deskriptoren wurden für jeden Datei einzeln im Ve
 
 
 \subsection{}
-Die Matlab Parallel Computing Toolbox ist in der Version \texttt{R2016b} nicht enthalten.
-Die Installation kostet 20 Euro.
-Allerdings stellte sich heraus, dass die Parallel Computing Toolbox in der Matlabversion \texttt{R2017a} enthalten ist und ein Update kostenlos möglich ist.
+Die Matlab Parallel Computing Toolbox ist in der Studenten Version \texttt{R2016b} nicht enthalten.
+Die Installation der Toolbox kostet zusätzlich 20 Euro.
 
-Während ein Durchlauf mit einer normalen \texttt{for} Schleife ca. $5 \frac{1}{2}$ Minuten dauert, braucht die parallelisierte Version der \texttt{for} Schleife nur ca. xxx Minuten.
-Beide Durchläufe wurden auf einem MacBook Pro mit einem 3,1 GHz Intel Core i7 Prozessor und 16 GB RAM ausgeführt.
+Während ein Durchlauf einer normalen \texttt{for} Schleife ca. 5 Minuten dauert, braucht die parallelisierte Version der \texttt{for} Schleife nur ca. 3 Minuten.
+Beide Durchläufe wurden auf einem Dell XPS 13 mit einem 2.4 GHz Intel Core i5 Prozessor und 8 GB RAM ausgeführt.
 
 Das Speichern der Matrizen mit Hilfe der Funktion \texttt{save} ist in Matlab innerhalb einer \texttt{parfor} Schleife nicht möglich.
 Deshalb wurde die Speicherfunktionalität in die Datei \texttt{saveToFile.m} ausgelagert.
@@ -122,7 +121,7 @@ Die Ergebnisse hiervon sind in den Abbildungen \ref{fig:harmonic_energy_c} bis \
 
 \begin{figure}[H]
     \center
-    \includegraphics[width = 0.8\textwidth]{Figures/spec_skew_c}
+    \includegraphics[width = 0.8\textwidth]{Figures/spectral_skew_c}
     \caption{Spectral Skew über Frame Energy mit Clustering }
     \label{fig:spectral_skew_c}
 \end{figure}
@@ -145,11 +144,11 @@ Die Ergebnisse hiervon sind in den Abbildungen \ref{fig:harmonic_energy_c} bis \
 
 Da die Harmonic Energy, der einzige Deskriptor ist, bei dem unsere theoretische Überlegung mit unserem als Referenz bzw. Ground Truth auserkorenen Deskriptor Frame Energy im Einklang steht, wählen wir auch dieses Merkmal um die Violinentöne endgültig in \textit{pp} für leise und \textit{ff} für laut zu klassifizieren. 
 Die Ergebnisse unseres Clusterings sind in Tabbelle \ref{} zu sehen.
-Desweiteren ist in Abbildung \ref{} ein mit den Labels \textit{pp} und \textit{ff} versehener Scatterplot für Harmonic Energy und Frame Energy dargestellt.
+Desweiteren ist in Abbildung \ref{fig:harmonic_energy_c_l} ein mit den Labels \textit{pp} und \textit{ff} versehener Scatterplot für Harmonic Energy und Frame Energy dargestellt.
 
 \begin{figure}[H]
     \center
-    \includegraphics[width = 0.8\textwidth]{Figures/harmonic_energy_l}
+    \includegraphics[width = 0.8\textwidth]{Figures/harmonic_energy_c_l}
     \caption{Harmonic Energy über Frame Energy mit Clustering und Labels \textit{pp} und \textit{ff} für leise uns laut}
-    \label{fig:harmonic_energy_l}
+    \label{fig:harmonic_energy_c_l}
 \end{figure}
