@@ -3,5 +3,5 @@
 
 function [] = saveToFile(filename, tempModel)
     filename = strcat('../Features/', num2str(filename), '_features.mat');
-    save(filename, tempModel);
+    save(filename);
 end

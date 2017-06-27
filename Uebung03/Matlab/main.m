@@ -1,4 +1,3 @@
-
 % read in filenames
 files = dir('../Audio/*.wav');
 numberOfFiles = length(files);
@@ -16,8 +15,9 @@ config_s.threshold_harmo    = 0.01;     % tuned
 config_s.nb_harmo           = 30;
 
 % analyze each file
-for n = 1:numberOfFiles                 % sequenziell
-%parfor n = 1:numberOfFiles              % parallel
+tic;
+%for n = 1:numberOfFiles                 % sequenziell
+parfor n = 1:numberOfFiles              % parallel
     currentFile = [files(n).folder, '/', files(n).name];
     
     desc = Gget_desc_onefile(currentFile, do_s, config_s);
@@ -27,3 +27,5 @@ for n = 1:numberOfFiles                 % sequenziell
     saveToFile(files(n).name, tempModel);
     disp(['Done with file number ', num2str(n)]);
 end
+
+disp(['Elapsed time to extract all features: ', num2str(toc), ' s']);

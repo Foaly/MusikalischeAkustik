@@ -28,12 +28,12 @@ function [FILE_s, ALLDESC_s, ALLTM_s] = Gtimbredescriptor(w_Directory, EXT)
 if ~nargin
 	% === DEFINE THE FOLDER WHERE THE FILES ARE LOCATED IN AND THEIR EXTENSIONS
 	%w_Directory = ['./soundexample/Lakatos.McGill/'];			EXT = '.aiff';
-	w_Directory = ['./soundexample/GreyWAV/'];					EXT = '.wav';
+	w_Directory = ['/Users/maximilian.wagenbach/Documents/TU/Semester 2/Musikalische Akustik/Repo/Uebung03/Audio/']; EXT = '.wav';
 end
 
 % ====================
 % === Add toolbox folders to Matlab path
-ROOT_DIR = './';
+ROOT_DIR = '/Users/maximilian.wagenbach/Documents/TU/Semester 2/Musikalische Akustik/Repo/Uebung03/Matlab/SVN_timbretoolbox/';
 addpath([ROOT_DIR]);
 addpath([ROOT_DIR filesep 'classes']);
 addpath([ROOT_DIR filesep '_tools']);

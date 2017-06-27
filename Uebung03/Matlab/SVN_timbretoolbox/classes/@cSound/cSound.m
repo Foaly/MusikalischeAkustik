@@ -49,15 +49,15 @@ c.w_FileType	= c.w_FileName(pos_v(end)+1:end);
 
 % === Read file
 switch c.w_FileType
-	case 'wav',         
-		[c.f_Sig_v, c.f_Fs]             = audioread(c.w_FileName, 'native');
+	case 'wav'        
+		[c.f_Sig_v, c.f_Fs]             = audioread(c.w_FileName);
         info                            = audioinfo(c.w_FileName);
         c.i_Bits                        = int16(info.BitsPerSample);
-		c.f_Sig_v						= int16(mean(c.f_Sig_v, 2));   % === for stereo signal
-	case 'aiff',        
+		c.f_Sig_v						= mean(c.f_Sig_v, 2);   % === for stereo signal
+	case 'aiff'      
 		[c.f_Sig_v, c.f_Fs, c.i_Bits]	= allread(c.w_FileName);
 		c.f_Sig_v						= mean(c.f_Sig_v, 2);    % === for stereo signal
-        c.f_Sig_v						= c.f_Sig_v / 2^c.iBits; % === NEW GFP 2011/07/07
+        c.f_Sig_v						= c.f_Sig_v / 2^c.i_Bits; % === NEW GFP 2011/07/07
 	otherwise,		error('Unsupported file type');
 end;
 
