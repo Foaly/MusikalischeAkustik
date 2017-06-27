@@ -2,6 +2,7 @@ import scipy.io as sio
 import glob
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import itertools
 
 import numpy as np
 
@@ -18,6 +19,7 @@ def main():
 
     # prepare data
     files = len(matfiles)
+    filenames = []
     frameErg = []
     harmonicErg = []
     rel = []
@@ -30,6 +32,7 @@ def main():
     featureD = np.zeros((files, 2))
 
     for i in range(files):
+        filenames.append(matfiles[i]['filename'])
         features = matfiles[i]['tempModel']
 
         frameErgValue = features['STFTpow_FrameErg_median']
@@ -111,7 +114,17 @@ def main():
     plt.ylabel("Harmonic Energy")
     plt.show()
 
-    
+    # export table for latex
+    # for name, label in itertools.zip_longest(filenames, fAkm.labels_):
+    #     klass = ""
+    #     if label == 1:
+    #         klass = "pp"
+    #     else:
+    #         klass = "ff"
+    #
+    #     print(str(name)[14:-14] + " & " + klass + " \\")
+
+
 
 if __name__ == '__main__':
     main()

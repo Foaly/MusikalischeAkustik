@@ -14,6 +14,17 @@ config_s.xcorr_nb_coeff     = 12;
 config_s.threshold_harmo    = 0.01;     % tuned
 config_s.nb_harmo           = 30;
 
+% setup concurrent execution
+system = gcp('nocreate');
+if isempty(system)
+    poolSize = 0;
+else
+    poolSize = system.NumWorkers;
+end
+if poolSize == 0
+    system = parpool('local');
+end
+
 % analyze each file
 tic;
 %for n = 1:numberOfFiles                 % sequenziell
