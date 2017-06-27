@@ -62,40 +62,73 @@ Beim Spielen lauter Töne wird zudem der Ton schneller aufgebaut, was mit der Ge
 Außerdem wird der Bogen bei leise gespielten Tönen langsamer von der Saite weggenommen.
 Diese beiden Merkmale lassen sich mit den temporalen Deskriptoren \textit{Attack Time} und \textit{Release Time} erfassen.
 
-\subsection{Test}
+\subsection{}
 Wir gehen davon aus, dass die analysierten Violinen-Samples unter gleichbleibenden Aufnahmebedingungen entstanden sind. 
 Deswegen sollte die Dynamikstufe mit der Leistung verknüpft sein, d.h. lauter Spielen gibt uns mehr Energie pro Zeiteinheit, wenn wir die in Abschnitt a. beschriebenen Schwankungen außer Beracht lassen.
 Wir verwenden deswegen die \textit{Frame Energy} als leistungsabhängiges Feature.
 
-Beim Blick auf die Scatterplots (siehe figures!!) sehen wir allerdings nur beim Deskriptor Harmonic Energy eine deutliche Korrelation mit der Frame Energy. 
+Beim Blick auf die Scatterplots (siehe Abbildungen \ref{fig:harmonic_energy} bis \ref{fig:release_time}) sehen wir allerdings nur beim Deskriptor Harmonic Energy eine deutliche Korrelation mit der Frame Energy. 
 Dies hätten wir eigentlich auch bei den anderen leistungsunabhängigen Größen erwartet hätten, sofern wir die Frame Energy als direkten Indikator für Dynamik ansehen.
+Die Harmonic Energy ist in unserem Fall also der geeignetste Deskriptor um Dynamikstufen zu klassifizieren.
 
 \begin{figure}[H]
     \center
     \includegraphics[width = 0.8\textwidth]{Figures/harmonicErg}
-    \caption{Harmonic Energy}
+    \caption{Harmonic Energy über Frame Energy }
     \label{fig:harmonic_energy}
 \end{figure}
 
 \begin{figure}[H]
     \center
-    \includegraphics[width = 0.8\textwidth]{Figures/rel.pdf}
-    \caption{Release Time}
-    \label{fig:release_time}
-\end{figure}
-
-\begin{figure}[H]
-    \center
     \includegraphics[width = 0.8\textwidth]{Figures/specSkew.pdf}
-    \caption{Spectral Skew}
+    \caption{Spectral Skew über Frame Energy}
     \label{fig:spectral_skew}
 \end{figure}
 
 \begin{figure}[H]
     \center
     \includegraphics[width = 0.8\textwidth]{Figures/att.pdf}
-    \caption{Attack Time}
+    \caption{Attack Time über Frame Energy}
     \label{fig:attack_time}
 \end{figure}
 
+\begin{figure}[H]
+    \center
+    \includegraphics[width = 0.8\textwidth]{Figures/rel.pdf}
+    \caption{Release Time über Frame Energy}
+    \label{fig:release_time}
+\end{figure}
 
+\subsection{}
+Für alle vier betrachteten Features haben wir in jweiliger Kombination mit dem Feature Frame Energy ein Clustering in zwei Klassen mithilfe des kmeans Algorithmus durchgeführt.
+Die Ergebnisse hiervon sind in den Abbildungen \ref{fig:harmonic_energy_c} bis \ref{fig:release_time_c} zu sehen.
+%\begin{figure}[H]
+%    \center
+%    \includegraphics[width = 0.8\textwidth]{Figures/harmonicErg_clustered}
+%    \caption{Harmonic Energy über Frame Energy mit Clustering }
+%    \label{fig:harmonic_energy_c}
+%\end{figure}
+%
+%
+%\begin{figure}[H]
+%    \center
+%    \includegraphics[width = 0.8\textwidth]{Figures/specSkew_clustered.pdf}
+%    \caption{Spectral Skew über Frame Energy mit Clustering }
+%    \label{fig:spectral_skew_c}
+%\end{figure}
+%
+%\begin{figure}[H]
+%    \center
+%    \includegraphics[width = 0.8\textwidth]{Figures/att_clustered.pdf}
+%    \caption{Attack Time über Frame Energy mit Clustering }
+%    \label{fig:attack_time_c}
+%\end{figure}
+%
+%\begin{figure}[H]
+%    \center
+%    \includegraphics[width = 0.8\textwidth]{Figures/rel_clustered.pdf}
+%    \caption{Release Time über Frame Energy mit Clustering}
+%    \label{fig:release_time_c}
+%\end{figure}
+
+\subsection{}
