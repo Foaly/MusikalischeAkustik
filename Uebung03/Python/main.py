@@ -1,6 +1,7 @@
 import scipy.io as sio
 import glob
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 import numpy as np
 
@@ -15,51 +16,102 @@ def main():
     for filename in glob.glob('../Features/*.mat'):
         matfiles.append(sio.loadmat(filename))
 
-    # Aufgabe 3 c)
+    # prepare data
+    files = len(matfiles)
     frameErg = []
     harmonicErg = []
     rel = []
     specSkew = []
     att = []
-    for i in range(len(matfiles)):
+
+    featureA = np.zeros((files, 2))
+    featureB = np.zeros((files, 2))
+    featureC = np.zeros((files, 2))
+    featureD = np.zeros((files, 2))
+
+    for i in range(files):
         features = matfiles[i]['tempModel']
-        frameErg.append(features['STFTpow_FrameErg_median'])
-        harmonicErg.append(features['Harmonic_HarmErg_median'])
-        rel.append(features['TEE_Rel'])
-        specSkew.append(features['STFTpow_SpecSkew_median'])
-        att.append(features['TEE_Att'])
 
-        #y.append(features['Harmonic_TriStim3_median'])
-        #y.append(features['STFTpow_SpecSlope_median'] * 100)
-        #y.append(features['STFTpow_SpecDecr_median'])
-        #y.append(features['STFTpow_SpecSpread_median'])
-        #y.append(features['TEE_AttSlope'])
-        #y.append(features['AS_AutoCorr1_median'])
+        frameErgValue = features['STFTpow_FrameErg_median']
+        harmonicErgValue = features['Harmonic_HarmErg_median']
+        relValue = features['TEE_Rel']
+        specSkewValue = features['STFTpow_SpecSkew_median']
+        attValue = features['TEE_Att']
 
+        frameErg.append(frameErgValue)
+        harmonicErg.append(harmonicErgValue)
+        rel.append(relValue)
+        specSkew.append(specSkewValue)
+        att.append(attValue)
+
+        featureA[i] = [frameErgValue, harmonicErgValue]
+        featureB[i] = [frameErgValue, relValue]
+        featureC[i] = [frameErgValue, specSkewValue]
+        featureD[i] = [frameErgValue, attValue]
+
+
+    # Aufgabe 3 c)
     plt.scatter(frameErg, harmonicErg)
     plt.xlabel("Frame Energy")
     plt.ylabel("Harmonic Energy")
-    #plt.show()
+    plt.show()
 
     plt.scatter(frameErg, rel)
     plt.xlabel("Frame Energy")
     plt.ylabel("Release Time")
-    #plt.show()
+    plt.show()
 
     plt.scatter(frameErg, specSkew)
     plt.xlabel("Frame Energy")
     plt.ylabel("Spectral Skew")
-    #plt.show()
+    plt.show()
 
     plt.scatter(frameErg, att)
     plt.xlabel("Frame Energy")
     plt.ylabel("Attack Time")
-    #plt.show()
+    plt.show()
 
     # Aufgabe 3 d)
-    KMeans()
+    LABEL_COLOR_MAP = {0: 'b', 1: 'r'}
+
+    fAkm = KMeans(n_clusters=2).fit(featureA)
+    plt.scatter(frameErg, harmonicErg, c=[LABEL_COLOR_MAP[l] for l in fAkm.labels_])
+    plt.xlabel("Frame Energy")
+    plt.ylabel("Harmonic Energy")
+    plt.show()
+
+    fDkm = KMeans(n_clusters=2).fit(featureD)
+    plt.scatter(frameErg, att, c=[LABEL_COLOR_MAP[l] for l in fDkm.labels_])
+    plt.xlabel("Frame Energy")
+    plt.ylabel("Attack Time")
+    plt.show()
+
+    fBkm = KMeans(n_clusters=2).fit(featureB)
+    plt.scatter(frameErg, rel, c=[LABEL_COLOR_MAP[l] for l in fBkm.labels_])
+    plt.xlabel("Frame Energy")
+    plt.ylabel("Release Time")
+    plt.show()
+
+    fCkm = KMeans(n_clusters=2).fit(featureC)
+    plt.scatter(frameErg, specSkew, c=[LABEL_COLOR_MAP[l] for l in fCkm.labels_])
+    plt.xlabel("Frame Energy")
+    plt.ylabel("Spectral Skew")
+    plt.show()
 
 
+    # Aufgabe 3 e)
+    fAkm = KMeans(n_clusters=2).fit(featureA)
+    label_color = [LABEL_COLOR_MAP[l] for l in fAkm.labels_]
+    plt.scatter(frameErg, harmonicErg, c=label_color)
+    pp = mpatches.Patch(color=LABEL_COLOR_MAP[0], label='pp')
+    ff = mpatches.Patch(color=LABEL_COLOR_MAP[1], label='ff')
+    plt.legend(handles=[pp, ff])
+
+    plt.xlabel("Frame Energy")
+    plt.ylabel("Harmonic Energy")
+    plt.show()
+
+    
 
 if __name__ == '__main__':
     main()
