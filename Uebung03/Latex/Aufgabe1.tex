@@ -23,43 +23,52 @@ Nach langem Rumprobieren gelang es das Problem zu lösen, indem die Datei \textt
 \section{Analyse}
 \label{sec:analyse}
 
+\subsection{}
+Die Analyse lies sich problemlos durchführen.
+Für jeden Datei wurden 98 Deskriptoren errechnet.	
+Der Parameter \texttt{config\_s.threshold\_harmo} wurde nach einigen Testdurchläufen auf \texttt{0.01} festgelegt, damit alle Dateien analysiert werden.
+Die Matrizen der extrahierten Deskriptoren wurden für jeden Datei einzeln im Verzeichnis \texttt{Features} gespeichert, um eine spätere Bearbeitung in Python zu ermöglichen. 
 
 
+\subsection{}
+Die Matlab Parallel Computing Toolbox ist in der Version \texttt{R2016b} nicht enthalten.
+Die Installation kostet 20 Euro.
+Allerdings stellte sich heraus, dass die Parallel Computing Toolbox in der Matlabversion \texttt{R2017a} enthalten ist und ein Update kostenlos möglich ist.
+
+Während ein Durchlauf mit einer normalen \texttt{for} Schleife ca. $5 \frac{1}{2}$ Minuten dauert, braucht die parallelisierte Version der \texttt{for} Schleife nur ca. xxx Minuten.
+Beide Durchläufe wurden auf einem MacBook Pro mit einem 3,1 GHz Intel Core i7 Prozessor und 16 GB RAM ausgeführt.
+
+Das Speichern der Matrizen mit Hilfe der Funktion \texttt{save} ist in Matlab innerhalb einer \texttt{parfor} Schleife nicht möglich.
+Deshalb wurde die Speicherfunktionalität in die Datei \texttt{saveToFile.m} ausgelagert.
 
 \section{Clustering}
 \label{sec:cluster}
 
 Anmerkung:
 
-Im dritten Aufgabenteil haben wir die mit Hilfe der Timbre Toolbox extrahierten Features in Matlab mit Python weiter verarbeitet und grafisch aufbereitet.
+Im dritten Aufgabenteil haben wir die in Matlab mit Hilfe der Timbre Toolbox extrahierten Features mit Python weiter verarbeitet und grafisch aufbereitet.
 
 \subsection{}
 
 Da Musiker sich während des Spielens bewegen, und außerdem verschiedene Töne in unterschiedlicher Haltung spielen, kann es zu Variationen des Mikrofonabstands und vor allem auch des Winkels zwischen Mikrofon und Instrument kommen. 
 Sowohl die Winkelabhängigkeit der Abstrahlcharakteristik der Violine, als auch die Richtcharakteristik des Mikrofons beeinflussen den vom Mikrofon detektierten absoluten Schalldruck, welcher in direktem Verhältnis zu den Leistungsgrößen steht. 
 Diese Schwankungen sind verhältnismäßig klein, wenn die Violine in ein und demselben Raum mit konstanten Mikrofonabstand aufgenommen wird, haben aber einen Einfluss.
-Desweiteren ist es sinnvoll Deskriptoren zu verwenden, die auch für Samples aus verschiedenen Aufnahmesituationen funktionieren und somit in der absoluten Leistung, welche von der Raumimpulsantwort, vom Instrument, vom Mikrofon und vom Abstand der letzteren abhängt, nicht mehr vergleichbar sind.
+Desweiteren ist es sinnvoll Deskriptoren zu verwenden, die auch für Samples aus verschiedenen Aufnahmesituationen funktionieren und somit in der absoluten Leistung, welche von der Raumimpulsantwort, vom Instrument, vom Mikrofon und vom Abstand der beiden Letzteren abhängt, nicht mehr vergleichbar sind.
 Stattdessen können wir zur Klassifizierung der Dynamikstufen Deskriptoren verwenden, die auf den veränderten Klangcharakter aufgrund unterschiedlichem harmonischem Gehalt bzw. die spektrale Färbung laut oder leise gespielter Töne abzielen.
 Außerdem macht es Sinn auch temporale Deskriptoren zu betrachten, die die Spielweise des Musikers beschreiben.
 \subsection{}
 Spielt man eine Violine mit mehr Dynamik, treten die Obertöne stärker hervor.
-%Das heißt die harmonischen Frequenzen der Grundfrequenz haben größere Amplituden im Verhältnis zur Grundfrequenz als wenn man den Bogen nur langsam und mit wenig Druck über die Saite streicht.  
-%Die daraus folgende Änderung in der Gestalt des Frequenzspektrums lässt sich mit den zwei Deskriptoren Spectral Skewness, welche die Asymetrie des Spektrums beschreibt und Spectral Kurtosis, welche die Ähnlichkeit des Spektrums zu einer Gaußkurve beschreibt quantifizieren. 
-Wenn man also den Bogen schnell und mit viel Druck über die Saite streicht liefern die harmonischen Frequenzen, also die Vielfachen der Grundfrequenz, größere Energiebeiträge im Verhältnis zur Gesamtenergie, welche auch den Anteil inharmonischer bzw. geräuschhafte Anteile enthält.  
+Wenn man also den Bogen schnell und mit viel Druck über die Saite streicht liefern die harmonischen Frequenzen, also die Vielfachen der Grundfrequenz, größere Energiebeiträge im Verhältnis zur Gesamtenergie, welche auch den Anteil inharmonischer bzw. geräuschhafter Anteile enthält.  
 Eine harmonischer Deskriptor, der diesen Effekt gut beschreibt ist die \textit{Harmonic Energy}.
 Sie gibt das Verhältnis der durch Partialtöne erklärten Energie zur Gesamtenergie an.
 Da es sich um einen zeitabhängigen Deskriptor handelt, gibt uns die Timbre Toolbox den Median als einzelnen Wert für ein Sample.\\ 
-%Diese Tatsache lässt sich in der Theorie am besten mit dem harmonischen Deskriptor \textit{Tristumuls} beschreiben (Lit.verweis zum Paper).
-%Dieser setzt sich aus drei Werten $T_1$, $T_2$ und $T_3$ zusammen.
-%$T_1$ ist das Verhältnis der Energie der Grundfrequenz zur Gesamtenergie des Signals. Dieser Wert sollte also größer sein bei leise gespielten Tönen. 
-%$T_2$ ist das Verhältnis der Energie des ersten, zweiten und dritten Obertons zur Gesamtenergie und sollte demnach kleiner sein bei leise gespielten Tönen.\\
 Derselbe Effekt lässt sich auch mithilfe eines spektralen Features beschreiben.
 Die \textit{Spectral Skewness} beschreibt die Asymmetrie des Spektrums um den Spectral Centroid herum.
 Wir erwarten hier auch unterschiedliche Werte, da aufgrund der angereicherten Obertöne bei lauter Spielweise ein stärkeres Gewicht bei hohen Frequenzen liegen sollte, also rechts vom Spectral centroid.
 Da dieser Deskriptor ebenfalls zeitabhängig ist, betrachten wir wieder den Median.
 
 Beim Spielen lauter Töne wird zudem der Ton schneller aufgebaut, was mit der Geschwindigkeit des Bogens zusammenhängt.
-Außerdem wird der Bogen bei leise gespielten Tönen langsamer von der Saite weggenommen.
+Außerdem wird der Bogen bei leise gespielten Tönen langsamer von der Saite genommen.
 Diese beiden Merkmale lassen sich mit den temporalen Deskriptoren \textit{Attack Time} und \textit{Release Time} erfassen.
 
 \subsection{}
@@ -100,7 +109,7 @@ Die Harmonic Energy ist in unserem Fall also der geeignetste Deskriptor um Dynam
 \end{figure}
 
 \subsection{}
-Für alle vier betrachteten Features haben wir in jeweiliger Kombination mit dem Feature Frame Energy ein Clustering in zwei Klassen mithilfe des kmeans Algorithmus durchgeführt.
+Für alle vier betrachteten Features haben wir in jeweiliger Kombination mit dem Feature Frame Energy ein Clustering in zwei Klassen mithilfe des \texttt{kmeans} Algorithmus durchgeführt.
 Die Ergebnisse hiervon sind in den Abbildungen \ref{fig:harmonic_energy_c} bis \ref{fig:release_time_c} zu sehen.
 %\begin{figure}[H]
 %    \center
