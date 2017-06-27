@@ -1,13 +1,12 @@
 import scipy.io as sio
-import glob
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import glob
 import itertools
 
-import numpy as np
 
 from sklearn.cluster import KMeans
-import scipy.cluster.vq
 
 
 def main():
@@ -114,15 +113,15 @@ def main():
     plt.ylabel("Harmonic Energy")
     plt.show()
 
-    # export table for latex
+    # export klasses as table for latex
     # for name, label in itertools.zip_longest(filenames, fAkm.labels_):
     #     klass = ""
     #     if label == 1:
-    #         klass = "pp"
-    #     else:
     #         klass = "ff"
+    #     else:
+    #         klass = "pp"
     #
-    #     print(str(name)[14:-14] + " & " + klass + " \\")
+    #     print(str(name)[14:-15].replace("_", "\\_") + " & " + klass + " \\\\\n\\hline")
 
 
 
