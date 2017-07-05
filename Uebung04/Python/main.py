@@ -1,18 +1,25 @@
 import scipy.io as sio
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import glob
-import itertools
+
+import csv
 
 
-from sklearn.cluster import KMeans
+def loadFile(filename):
+    with open(filename) as csvfile:
+        result = []
+        reader = csv.reader(csvfile, delimiter=" ")
+        for row in reader:
+            if row[-1] == ';':
+                del row[-1]
+            result.append(row)
+
+        return result
 
 
 def main():
-    print("Blatt 4 - Sinusoidal Modeling")
-
-
+    buk04_amplitude = loadFile('../SinusoidsTXT/TwoNote_BuK_04.AMPL')
+    print(buk04_amplitude)
 
 if __name__ == '__main__':
     main()
