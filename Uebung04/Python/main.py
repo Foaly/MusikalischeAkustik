@@ -16,6 +16,7 @@ def loadFile(filename):
 
         return np.array(result)
 
+
 def loadRecording(filename):
     amplitudes = loadFile(filename + ".AMPL")
     frequencies = loadFile(filename + ".FREQ")
@@ -42,6 +43,22 @@ def main():
 
     for i in range(5):
         plt.plot(buk23_amplitude_T[i])
+    plt.xlabel("Frame")
+    plt.ylabel("Amplitude")
+    plt.show()
+
+    # c)
+    buk04_frequencies_T = np.transpose(buk04_frequencies)
+    buk23_frequencies_T = np.transpose(buk23_frequencies)
+
+    for i in range(5):
+        plt.plot(buk04_frequencies_T[i])
+    plt.xlabel("Frame")
+    plt.ylabel("Amplitude")
+    plt.show()
+
+    for i in range(5):
+        plt.plot(buk23_frequencies_T[i])
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
     plt.show()
