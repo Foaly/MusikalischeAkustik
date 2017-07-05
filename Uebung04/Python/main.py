@@ -14,12 +14,37 @@ def loadFile(filename):
                 del row[-1]
             result.append(row)
 
-        return result
+        return np.array(result)
+
+def loadRecording(filename):
+    amplitudes = loadFile(filename + ".AMPL")
+    frequencies = loadFile(filename + ".FREQ")
+    f0s = loadFile(filename + ".F0")
+    phases = loadFile(filename + ".PHA")
+    return amplitudes, frequencies, f0s, phases
 
 
 def main():
-    buk04_amplitude = loadFile('../SinusoidsTXT/TwoNote_BuK_04.AMPL')
-    print(buk04_amplitude)
+
+    # a)
+    buk04_amplitude, buk04_frequencies, buk04_f0s, buk04_phases = loadRecording('../SinusoidsTXT/TwoNote_BuK_04')
+    buk23_amplitude, buk23_frequencies, buk23_f0s, buk23_phases = loadRecording('../SinusoidsTXT/TwoNote_BuK_23')
+
+    # b)
+    buk04_amplitude_T = np.transpose(buk04_amplitude)
+    buk23_amplitude_T = np.transpose(buk23_amplitude)
+
+    for i in range(5):
+        plt.plot(buk04_amplitude_T[i])
+    plt.xlabel("Frame")
+    plt.ylabel("Amplitude")
+    plt.show()
+
+    for i in range(5):
+        plt.plot(buk23_amplitude_T[i])
+    plt.xlabel("Frame")
+    plt.ylabel("Amplitude")
+    plt.show()
 
 if __name__ == '__main__':
     main()
