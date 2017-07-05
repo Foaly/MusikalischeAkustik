@@ -34,3 +34,5 @@
 *.mp3
 
 .idea
+
+.floo*
