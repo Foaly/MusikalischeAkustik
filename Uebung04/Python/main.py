@@ -2,6 +2,7 @@ from sklearn.preprocessing import normalize
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 from scipy.io.wavfile import write
 import csv
 import math
@@ -92,43 +93,47 @@ def main():
     buk23_amplitude_T = np.transpose(buk23_amplitude)
 
     for i in range(5):
-        plt.plot(buk04_amplitude_T[i])
+        plt.plot(buk04_amplitude_T[i], label=str(i))
+    plt.legend(loc=2)
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
-    #plt.show()
+    plt.savefig('../Latex/Figures/buk04_amp.pgf')
+    plt.show()
 
     for i in range(5):
-        plt.plot(buk23_amplitude_T[i])
+        plt.plot(buk23_amplitude_T[i], label=str(i))
+    plt.legend()
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
-    #plt.show()
+    plt.savefig('../Latex/Figures/buk23_amp.pgf')
+    plt.show()
 
     # 1c)
-    buk04_frequencies_T = np.transpose(buk04_frequencies)
-    buk23_frequencies_T = np.transpose(buk23_frequencies)
-
-    for i in range(5):
-        plt.plot(buk04_frequencies_T[i])
-    plt.xlabel("Frame")
-    plt.ylabel("Frequenz")
-    #plt.show()
-
-    for i in range(5):
-        plt.plot(buk23_frequencies_T[i])
-    plt.xlabel("Frame")
-    plt.ylabel("Frequenz")
-    #plt.show()
-
-    #############################
-    # 2a)
-    #############################
-
-    fs = 44100
-    output = synthesize(buk04_amplitude, buk04_f0s, fs)
-    write('buk04.wav', fs, np.array(output))
-
-    output = synthesize(buk23_amplitude, buk23_f0s, fs)
-    write('buk23.wav', fs, np.array(output))
+    # buk04_frequencies_T = np.transpose(buk04_frequencies)
+    # buk23_frequencies_T = np.transpose(buk23_frequencies)
+    #
+    # for i in range(5):
+    #     plt.plot(buk04_frequencies_T[i])
+    # plt.xlabel("Frame")
+    # plt.ylabel("Frequenz")
+    # #plt.show()
+    #
+    # for i in range(5):
+    #     plt.plot(buk23_frequencies_T[i])
+    # plt.xlabel("Frame")
+    # plt.ylabel("Frequenz")
+    # #plt.show()
+    #
+    # #############################
+    # # 2a)
+    # #############################
+    #
+    # fs = 44100
+    # output = synthesize(buk04_amplitude, buk04_f0s, fs)
+    # write('buk04.wav', fs, np.array(output))
+    #
+    # output = synthesize(buk23_amplitude, buk23_f0s, fs)
+    # write('buk23.wav', fs, np.array(output))
 
 
 if __name__ == '__main__':
