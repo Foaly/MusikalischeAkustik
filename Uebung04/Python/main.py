@@ -110,13 +110,13 @@ def main():
     for i in range(5):
         plt.plot(buk04_frequencies_T[i])
     plt.xlabel("Frame")
-    plt.ylabel("Amplitude")
+    plt.ylabel("Frequenz")
     #plt.show()
 
     for i in range(5):
         plt.plot(buk23_frequencies_T[i])
     plt.xlabel("Frame")
-    plt.ylabel("Amplitude")
+    plt.ylabel("Frequenz")
     #plt.show()
 
     #############################
