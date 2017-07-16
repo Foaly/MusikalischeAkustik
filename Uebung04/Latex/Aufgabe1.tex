@@ -28,19 +28,20 @@ Der Verlauf der Amplitude für die ersten fünf Partialtöne beider Aufnahmen is
 \end{figure}
 
 \paragraph{BuK\_04}
-\label{par:04}
+\label{par:04_amp}
 Diese Aufnahme teilt sich in zwei signifikante Bereiche auf;
 Einen leisen linken Teil der bei Frame 1279 abrupt in einen deutlich lauteren rechten Teil wechselt.
 Der Amplitudenverlauf des linken Teils ist linear wohingegen der rechte Teil eine Dynamikbogen, von leise zu laut und wieder zurück, aufweist.
 
 \paragraph{BuK\_23}
 Auch in dieser Aufnahme sind zwei Bereiche erkennbar, die bei Frame 1279 wechseln.
-Im Gegensatz zur Aufnahme \ref{par:04} ist in dieser Aufnahme eine konstante Oszillation der Amplitude über alle Partialtöne erkennbar.
+Im Gegensatz zur Aufnahme \ref{par:04_amp} ist in dieser Aufnahme eine konstante Oszillation der Amplitude über alle Partialtöne erkennbar.
 Auffällig ist das im rechten Teil der erste Partialton sehr leise ist, dafür aber der zweite Paritalton der lauteste ist.
 
 
 \subsection{}
-Siehe Abbildung \ref{fig:freq}.
+Der Verlauf der Frequenz für die ersten fünf Partialtöne beider Aufnahmen ist Abbildung \ref{fig:freq} zu sehen.
+\files{main.py}
 
 \begin{figure}[H]
     \centering
@@ -60,23 +61,43 @@ Siehe Abbildung \ref{fig:freq}.
     \label{fig:freq}
 \end{figure}
 
+\paragraph{BuK\_04}
+Von Frame 54 bis Frame 96 ist die Einschwingenphase des Instruments zu erkennen.
+Anschließend bleibt der Grundton bei 221 Hz relativ konstant.
+Ab Frame 1260 findet ein kurzes Portamento über 30 Frames statt, woraufhin der nächste Grundton von 295 Hz erreicht wird.
+Bei Frame 2400 beginnt die Ausschwingphase des Instruments, welches schließlich bei Frame 2520 ausgeklungen ist.
+
+\paragraph{BuK\_23}
+Von Frame 70 bis Frame 120 ist die Einschwingenphase des Instruments zu erkennen.
+Anschließend bleibt der Grundton bei 285 Hz relativ konstant.
+Ab Frame 1170 klingt der Ton aus und bei Fram 1382 wird ein neuer angesetzt.
+Wieder nach einer kurzen Einschwingphase wird der nächste Grundton von 220 Hz erreicht wird.
+Bei Frame 2675 beginnt die Ausschwingphase des zweiten Tons, der schließlich bei Frame 2765 ausgeklungen ist.
+
 
 \section{Strikte Harmonische Sysnthese}
 \label{sec:2}
 
 \subsection{}
+Die Funktion \texttt{synthesize()} erzeugt ein synthetisches Signal nach den Partialtonverläufen.
+\files{main.py}
 
 
 \subsection{}
+\files{main.py}
 
 
 \section{Freie Harmonische Sysnthese}
 \label{sec:3}
 
-\subsection{}
 
 \subsection{}
+\files{main.py}
 
 
-\section{Berücksuchtugung der originalen Phasen}
-\label{sec:4}
+\subsection{}
+\files{main.py}
+
+
+%\section{Berücksuchtugung der originalen Phasen}
+%\label{sec:4}

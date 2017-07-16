@@ -16,6 +16,8 @@
 *.lot
 *.asc
 
+*.xdv
+
 *.bib.bak
 *.bib.sav
 
