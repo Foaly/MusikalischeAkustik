@@ -15,9 +15,9 @@
 %%
 %% Matplotlib used the following preamble
 %%   \usepackage{fontspec}
-%%   \setmainfont{DejaVu Serif}
-%%   \setsansfont{DejaVu Sans}
-%%   \setmonofont{DejaVu Sans Mono}
+%%   \setmainfont{Times New Roman}
+%%   \setsansfont{Lucida Grande}
+%%   \setmonofont{Andale Mono}
 %%
 \begingroup%
 \makeatletter%
@@ -212,7 +212,7 @@
 \pgftext[x=5.260668in,y=0.430778in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3000}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=3.280000in,y=0.240809in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Frame}%
+\pgftext[x=3.280000in,y=0.241352in,,top]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Frame}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -234,7 +234,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.614413in,y=0.655527in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0}%
+\pgftext[x=0.614955in,y=0.654747in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -256,7 +256,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=1.101185in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1000}%
+\pgftext[x=0.351487in,y=1.100405in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -278,7 +278,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=1.546844in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2000}%
+\pgftext[x=0.351487in,y=1.546064in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -300,7 +300,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=1.992502in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3000}%
+\pgftext[x=0.351487in,y=1.991722in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -322,7 +322,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=2.438160in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4000}%
+\pgftext[x=0.351487in,y=2.437380in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -344,7 +344,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=2.883818in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 5000}%
+\pgftext[x=0.351487in,y=2.883038in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 5000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -366,7 +366,7 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=3.329476in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 6000}%
+\pgftext[x=0.351487in,y=3.328696in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 6000}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -388,10 +388,10 @@
 \end{pgfscope}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.349316in,y=3.775135in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 7000}%
+\pgftext[x=0.351487in,y=3.774355in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 7000}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.293761in,y=2.376000in,,bottom,rotate=90.000000]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Frequenz}%
+\pgftext[x=0.295931in,y=2.376000in,,bottom,rotate=90.000000]{\sffamily\fontsize{10.000000}{12.000000}\selectfont Frequenz [Hz]}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.800000in}{0.528000in}}{\pgfqpoint{4.960000in}{3.696000in}} %
@@ -2721,15 +2721,15 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{5.129968in}{3.093603in}}%
-\pgfpathlineto{\pgfqpoint{5.662778in}{3.093603in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{5.690556in}{3.093603in}}{\pgfqpoint{5.690556in}{3.121381in}}%
+\pgfpathmoveto{\pgfqpoint{5.130511in}{3.096315in}}%
+\pgfpathlineto{\pgfqpoint{5.662778in}{3.096315in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{5.690556in}{3.096315in}}{\pgfqpoint{5.690556in}{3.124093in}}%
 \pgfpathlineto{\pgfqpoint{5.690556in}{4.126778in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{5.690556in}{4.154556in}}{\pgfqpoint{5.662778in}{4.154556in}}%
-\pgfpathlineto{\pgfqpoint{5.129968in}{4.154556in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{5.102190in}{4.154556in}}{\pgfqpoint{5.102190in}{4.126778in}}%
-\pgfpathlineto{\pgfqpoint{5.102190in}{3.121381in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{5.102190in}{3.093603in}}{\pgfqpoint{5.129968in}{3.093603in}}%
+\pgfpathlineto{\pgfqpoint{5.130511in}{4.154556in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{5.102733in}{4.154556in}}{\pgfqpoint{5.102733in}{4.126778in}}%
+\pgfpathlineto{\pgfqpoint{5.102733in}{3.124093in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{5.102733in}{3.096315in}}{\pgfqpoint{5.130511in}{3.096315in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -2740,12 +2740,12 @@
 \definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{5.157746in}{4.042088in}}%
-\pgfpathlineto{\pgfqpoint{5.435524in}{4.042088in}}%
+\pgfpathmoveto{\pgfqpoint{5.158288in}{4.040528in}}%
+\pgfpathlineto{\pgfqpoint{5.436066in}{4.040528in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.993477in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1}%
+\pgftext[x=5.547177in,y=3.991917in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2754,12 +2754,12 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.498039,0.054902}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{5.157746in}{3.838231in}}%
-\pgfpathlineto{\pgfqpoint{5.435524in}{3.838231in}}%
+\pgfpathmoveto{\pgfqpoint{5.158288in}{3.837214in}}%
+\pgfpathlineto{\pgfqpoint{5.436066in}{3.837214in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.789620in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2}%
+\pgftext[x=5.547177in,y=3.788602in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2768,12 +2768,12 @@
 \definecolor{currentstroke}{rgb}{0.172549,0.627451,0.172549}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{5.157746in}{3.634374in}}%
-\pgfpathlineto{\pgfqpoint{5.435524in}{3.634374in}}%
+\pgfpathmoveto{\pgfqpoint{5.158288in}{3.633899in}}%
+\pgfpathlineto{\pgfqpoint{5.436066in}{3.633899in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.585763in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3}%
+\pgftext[x=5.547177in,y=3.585288in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2782,12 +2782,12 @@
 \definecolor{currentstroke}{rgb}{0.839216,0.152941,0.156863}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{5.157746in}{3.430516in}}%
-\pgfpathlineto{\pgfqpoint{5.435524in}{3.430516in}}%
+\pgfpathmoveto{\pgfqpoint{5.158288in}{3.430584in}}%
+\pgfpathlineto{\pgfqpoint{5.436066in}{3.430584in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.381905in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4}%
+\pgftext[x=5.547177in,y=3.381973in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2796,12 +2796,12 @@
 \definecolor{currentstroke}{rgb}{0.580392,0.403922,0.741176}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{5.157746in}{3.226659in}}%
-\pgfpathlineto{\pgfqpoint{5.435524in}{3.226659in}}%
+\pgfpathmoveto{\pgfqpoint{5.158288in}{3.227269in}}%
+\pgfpathlineto{\pgfqpoint{5.436066in}{3.227269in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.178048in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 5}%
+\pgftext[x=5.547177in,y=3.178658in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 5}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
