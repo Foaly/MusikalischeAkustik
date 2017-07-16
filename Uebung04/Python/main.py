@@ -169,16 +169,16 @@ def main():
         plt.plot(buk04_frequencies_T[i], label=str(i+1))
     plt.legend()
     plt.xlabel("Frame")
-    plt.ylabel("Frequenz")
-    #plt.savefig('../Latex/Figures/buk04_freq.pgf')
+    plt.ylabel("Frequenz [Hz]")
+    plt.savefig('../Latex/Figures/buk04_freq.pgf')
     plt.show()
 
     for i in range(5):
         plt.plot(buk23_frequencies_T[i], label=str(i+1))
     plt.legend()
     plt.xlabel("Frame")
-    plt.ylabel("Frequenz")
-    #plt.savefig('../Latex/Figures/buk23_freq.pgf')
+    plt.ylabel("Frequenz [Hz]")
+    plt.savefig('../Latex/Figures/buk23_freq.pgf')
     plt.show()
 
 
