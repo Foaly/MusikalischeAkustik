@@ -1,11 +1,13 @@
 from sklearn.preprocessing import normalize
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import signal
 
 
 from scipy.io.wavfile import write
 import csv
 import math
+import sys
 
 
 def loadFile(filename):
@@ -76,8 +78,8 @@ def synthesize(amplitudeArray: np.array, f0Array: np.array, fs: int):
     maximum = max(output)
     output = [float(i) / maximum for i in output]
 
-    plt.figure()
-    plt.plot(output)
+    #plt.figure()
+    #plt.plot(output)
     #plt.show()
 
     return output
@@ -140,68 +142,94 @@ def main():
     buk23_amplitude, buk23_frequencies, buk23_f0s, buk23_phases = loadRecording('../SinusoidsTXT/TwoNote_BuK_23')
 
 
-    # 1b)
-    buk04_amplitude_T = np.transpose(buk04_amplitude)
-    buk23_amplitude_T = np.transpose(buk23_amplitude)
+    # # 1b)
+    # buk04_amplitude_T = np.transpose(buk04_amplitude)
+    # buk23_amplitude_T = np.transpose(buk23_amplitude)
+    #
+    # for i in range(5):
+    #     plt.plot(buk04_amplitude_T[i], label=str(i+1))
+    # plt.legend(loc=2)
+    # plt.xlabel("Frame")
+    # plt.ylabel("Amplitude")
+    # # plt.savefig('../Latex/Figures/buk04_amp.pgf')
+    # plt.show()
+    #
+    # for i in range(5):
+    #     plt.plot(buk23_amplitude_T[i], label=str(i+1))
+    # plt.legend()
+    # plt.xlabel("Frame")
+    # plt.ylabel("Amplitude")
+    # # plt.savefig('../Latex/Figures/buk23_amp.pgf')
+    # plt.show()
+    #
+    #
+    # # 1c)
+    # buk04_frequencies_T = np.transpose(buk04_frequencies)
+    # buk23_frequencies_T = np.transpose(buk23_frequencies)
+    #
+    # for i in range(5):
+    #     plt.plot(buk04_frequencies_T[i], label=str(i+1))
+    # plt.legend()
+    # plt.xlabel("Frame")
+    # plt.ylabel("Frequenz [Hz]")
+    # plt.savefig('../Latex/Figures/buk04_freq.pgf')
+    # plt.show()
+    #
+    # for i in range(5):
+    #     plt.plot(buk23_frequencies_T[i], label=str(i+1))
+    # plt.legend()
+    # plt.xlabel("Frame")
+    # plt.ylabel("Frequenz [Hz]")
+    # plt.savefig('../Latex/Figures/buk23_freq.pgf')
+    # plt.show()
 
-    for i in range(5):
-        plt.plot(buk04_amplitude_T[i], label=str(i+1))
-    plt.legend(loc=2)
-    plt.xlabel("Frame")
-    plt.ylabel("Amplitude")
-    # plt.savefig('../Latex/Figures/buk04_amp.pgf')
-    plt.show()
-
-    for i in range(5):
-        plt.plot(buk23_amplitude_T[i], label=str(i+1))
-    plt.legend()
-    plt.xlabel("Frame")
-    plt.ylabel("Amplitude")
-    # plt.savefig('../Latex/Figures/buk23_amp.pgf')
-    plt.show()
-
-
-    # 1c)
-    buk04_frequencies_T = np.transpose(buk04_frequencies)
-    buk23_frequencies_T = np.transpose(buk23_frequencies)
-
-    for i in range(5):
-        plt.plot(buk04_frequencies_T[i], label=str(i+1))
-    plt.legend()
-    plt.xlabel("Frame")
-    plt.ylabel("Frequenz [Hz]")
-    plt.savefig('../Latex/Figures/buk04_freq.pgf')
-    plt.show()
-
-    for i in range(5):
-        plt.plot(buk23_frequencies_T[i], label=str(i+1))
-    plt.legend()
-    plt.xlabel("Frame")
-    plt.ylabel("Frequenz [Hz]")
-    plt.savefig('../Latex/Figures/buk23_freq.pgf')
-    plt.show()
-
-
-    # #############################
-    # # 2a)
-    # #############################
+    ##############################
+    # 2a)
+    ##############################
     #
     fs = 44100
-    # output = synthesize(buk04_amplitude, buk04_f0s, fs)
+    output_buk04 = synthesize(buk04_amplitude, buk04_f0s, fs)
     # write('buk04.wav', fs, np.array(output))
     #
-    # output = synthesize(buk23_amplitude, buk23_f0s, fs)
+    output_buk23 = synthesize(buk23_amplitude, buk23_f0s, fs)
     # write('buk23.wav', fs, np.array(output))
+
+    # 2b)
+    frame = 1024
+    overlap = frame // 2
+
+    output_buk04 = np.array(output_buk04)
+
+    # work around for the fucking bug in matplotlib
+    output_buk04[output_buk04 == 0.0] = 0.001
+
+    plt.specgram(output_buk04, Fs=fs, NFFT=frame, noverlap=overlap, mode='magnitude')
+    plt.ylabel('Frequenz [Hz]')
+    plt.xlabel('Zeit [sec]')
+    plt.savefig('../Latex/Figures/buk04_spectrogram.pdf')
+    plt.show()
+
+    plt.figure()
+    output_buk23 = np.array(output_buk23)
+
+    # work around for the fucking bug in matplotlib
+    output_buk23[output_buk23 == 0.0] = 0.001
+
+    plt.specgram(output_buk23, Fs=fs, NFFT=frame, noverlap=overlap, mode='magnitude')
+    plt.ylabel('Frequenz [Hz]')
+    plt.xlabel('Zeit [sec]')
+    plt.savefig('../Latex/Figures/buk23_spectrogram.pdf')
+    plt.show()
 
     #############################
     # 3a)
     #############################
 
-    output = synthesizeWithOvertones(buk04_amplitude, buk04_frequencies, fs)
-    write('buk04_overtones.wav', fs, np.array(output))
+    #output = synthesizeWithOvertones(buk04_amplitude, buk04_frequencies, fs)
+    #write('buk04_overtones.wav', fs, np.array(output))
 
-    output = synthesizeWithOvertones(buk23_amplitude, buk23_frequencies, fs)
-    write('buk23_overtones.wav', fs, np.array(output))
+    #output = synthesizeWithOvertones(buk23_amplitude, buk23_frequencies, fs)
+    #write('buk23_overtones.wav', fs, np.array(output))
 
 if __name__ == '__main__':
     main()
