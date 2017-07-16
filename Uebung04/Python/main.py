@@ -13,6 +13,7 @@ def loadFile(filename):
         result = []
         reader = csv.reader(csvfile, delimiter=" ")
         for row in reader:
+            # delete the trailing ';' in the csv files
             if row[-1] == ';':
                 del row[-1]
             result.append(row)
@@ -147,7 +148,7 @@ def main():
     plt.legend(loc=2)
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
-    plt.savefig('../Latex/Figures/buk04_amp.pgf')
+    # plt.savefig('../Latex/Figures/buk04_amp.pgf')
     plt.show()
 
     for i in range(5):
@@ -155,7 +156,7 @@ def main():
     plt.legend()
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
-    plt.savefig('../Latex/Figures/buk23_amp.pgf')
+    # plt.savefig('../Latex/Figures/buk23_amp.pgf')
     plt.show()
 
     # 1c)
@@ -178,13 +179,12 @@ def main():
     # # 2a)
     # #############################
     #
-    # fs = 44100
+    fs = 44100
     # output = synthesize(buk04_amplitude, buk04_f0s, fs)
     # write('buk04.wav', fs, np.array(output))
     #
     # output = synthesize(buk23_amplitude, buk23_f0s, fs)
     # write('buk23.wav', fs, np.array(output))
-
 
     #############################
     # 3a)
