@@ -15,9 +15,9 @@
 
 % character encoding
 \usepackage[ngerman]{babel}
-%\usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
-\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{fontspec}
 
 % puts the images where they belong
 \usepackage{float}
@@ -28,13 +28,14 @@
 \usepackage{amssymb}
 
 % unsauber (wegen hässlicher typo von scrrept)
-%\renewcommand*\rmdefault{ppl}
-%\renewcommand*\sfdefault{ppl}
+\renewcommand*\rmdefault{ppl}
+\renewcommand*\sfdefault{ppl}
 \renewcommand*\ttdefault{cmss}
 
 \usepackage[onehalfspacing]{setspace}
 
-\usepackage[automark, headsepline, footsepline]{scrlayer-scrpage}
+\usepackage[automark, headsepline]{scrlayer-scrpage}
+% footsepline
 \clearpairofpagestyles
 \pagestyle{scrheadings}
 
