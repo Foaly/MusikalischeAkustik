@@ -38,7 +38,7 @@ def synthesize(amplitudeArray: np.array, f0Array: np.array, fs: int):
     frameSize = 128
     numPartials = len(amplitudeArray[0])
 
-    oldAmplitudes = np.zeros(30)
+    oldAmplitudes = np.zeros(numPartials)
     oldw = 0.0
     omega = np.zeros(numPartials)
     phi = np.zeros(numPartials)
@@ -59,10 +59,60 @@ def synthesize(amplitudeArray: np.array, f0Array: np.array, fs: int):
             interpolatedAmp = linearInterpolation(oldAmplitudes, amplitudes, amount)
             interpolatedw   = linearInterpolation(oldw, w, amount)
 
-            # iterate overall partial tones
+            # iterate over all partial tones
             for i in range(numPartials):
                 omega[i] = (i + 1) * interpolatedw * (n + 1) + phi[i]
                 sample += interpolatedAmp[i] * math.sin(omega[i])
+
+            output.append(sample)
+
+        # save the input to the sin from the frames last iteration as the phase offset for the next frame
+        phi = omega.copy()
+        oldAmplitudes = amplitudes
+        oldw = w
+
+    # normalize to range [0, 1]
+    maximum = max(output)
+    output = [float(i) / maximum for i in output]
+
+    plt.figure()
+    plt.plot(output)
+    #plt.show()
+
+    return output
+
+
+def synthesizeWithOvertones(amplitudeArray: np.array, freqArray: np.array, fs: int):
+    output = []
+    frameSize = 128
+    numPartials = len(freqArray[0])
+
+    oldAmplitudes = np.zeros(numPartials)
+    oldw = np.zeros(numPartials)
+    omega = np.zeros(numPartials)
+    phi = np.zeros(numPartials)
+
+    # iterate over all Stützstellen
+    for k in range(len(amplitudeArray)):
+        frequencies = np.array(freqArray[k])
+        frequencies = frequencies.astype(np.float)
+        w           = 2.0 * math.pi * frequencies / fs
+        amplitudes  = np.array(amplitudeArray[k])
+        amplitudes  = amplitudes.astype(np.float)
+
+        # iterate over the length of a frame
+        for n in range(frameSize):
+            sample = 0
+
+            # interpolation
+            amount = n / (frameSize - 1)
+            interpolatedAmp = linearInterpolation(oldAmplitudes, amplitudes, amount)
+            interpolatedw   = linearInterpolation(oldw, w, amount)
+
+            # iterate over all partial tones
+            for i in range(numPartials):
+                omega[i] = interpolatedw[i] * (n + 1) + phi[i]
+                sample  += interpolatedAmp[i] * math.sin(omega[i])
 
             output.append(sample)
 
@@ -135,6 +185,16 @@ def main():
     # output = synthesize(buk23_amplitude, buk23_f0s, fs)
     # write('buk23.wav', fs, np.array(output))
 
+
+    #############################
+    # 3a)
+    #############################
+
+    output = synthesizeWithOvertones(buk04_amplitude, buk04_frequencies, fs)
+    write('buk04_overtones.wav', fs, np.array(output))
+
+    output = synthesizeWithOvertones(buk23_amplitude, buk23_frequencies, fs)
+    write('buk23_overtones.wav', fs, np.array(output))
 
 if __name__ == '__main__':
     main()
