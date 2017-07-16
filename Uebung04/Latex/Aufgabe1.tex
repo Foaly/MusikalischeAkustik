@@ -7,17 +7,7 @@ Die Funktion \texttt{loadRecordings()} liest die Datensätze ein und stellt sie 
 
 \subsection{}
 Der Verlauf der Amplitude für die ersten fünf Partialtöne beider Aufnahmen ist Abbildung \ref{fig:ampl} zu sehen.
-
-\paragraph{BuK\_04}
-\label{par:04}
-Diese Aufnahme teilt sich in zwei signifikante Bereiche auf;
-Einen leisen Linken Teil der bei Frame 1279 abrupt in einen deutlich lauteren rechten Teil wechselt.
-Der Amplitudenverlauf des linken Teils ist linear wohingegen der rechte Teil eine Dynamikbogen, von leise zu laut und wieder zurück, aufweist.
-
-\paragraph{BuK\_23}
-Auch in dieser Aufnahme sind zwei Bereiche erkennbar, die bei Frame 1279 wechseln.
-Im Gegensatz zur Aufnahme \ref{par:04} ist in dieser Aufnahme eine Oszillation der Amplitude erkennbar.
-Auffällig ist, dass 
+\files{main.py}
 
 \begin{figure}[tbh]
     \centering
@@ -37,6 +27,18 @@ Auffällig ist, dass
     \label{fig:ampl}
 \end{figure}
 
+\paragraph{BuK\_04}
+\label{par:04}
+Diese Aufnahme teilt sich in zwei signifikante Bereiche auf;
+Einen leisen linken Teil der bei Frame 1279 abrupt in einen deutlich lauteren rechten Teil wechselt.
+Der Amplitudenverlauf des linken Teils ist linear wohingegen der rechte Teil eine Dynamikbogen, von leise zu laut und wieder zurück, aufweist.
+
+\paragraph{BuK\_23}
+Auch in dieser Aufnahme sind zwei Bereiche erkennbar, die bei Frame 1279 wechseln.
+Im Gegensatz zur Aufnahme \ref{par:04} ist in dieser Aufnahme eine konstante Oszillation der Amplitude über alle Partialtöne erkennbar.
+Auffällig ist das im rechten Teil der erste Partialton sehr leise ist, dafür aber der zweite Paritalton der lauteste ist.
+
+
 \subsection{}
 Siehe Abbildung \ref{fig:freq}.
 
@@ -45,13 +47,13 @@ Siehe Abbildung \ref{fig:freq}.
     \begin{subfigure}{.5\textwidth}
         \centering
         \caption{BuK\_04}
-        \includegraphics[width=\linewidth]{Figures/Buk04_frequencies.pdf}
+        \scalebox{0.5}{\input{Figures/buk04_freq.pgf}}
         \label{fig:sub1}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
         \centering
         \caption{BuK\_23}
-        \includegraphics[width=\linewidth]{Figures/Buk23_frequencies.pdf}
+        \scalebox{0.5}{\input{Figures/buk23_freq.pgf}}
         \label{fig:sub2}
     \end{subfigure}
     \caption{Frequenzverlauf der ersten fünf Partialtöne}

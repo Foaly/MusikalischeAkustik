@@ -4672,7 +4672,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.993477in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 0}%
+\pgftext[x=5.546635in,y=3.993477in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -4686,7 +4686,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.789620in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 1}%
+\pgftext[x=5.546635in,y=3.789620in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -4700,7 +4700,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.585763in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 2}%
+\pgftext[x=5.546635in,y=3.585763in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -4714,7 +4714,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.381905in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 3}%
+\pgftext[x=5.546635in,y=3.381905in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -4728,7 +4728,7 @@
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=5.546635in,y=3.178048in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 4}%
+\pgftext[x=5.546635in,y=3.178048in,left,base]{\sffamily\fontsize{10.000000}{12.000000}\selectfont 5}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

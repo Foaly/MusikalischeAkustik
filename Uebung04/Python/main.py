@@ -139,12 +139,13 @@ def main():
     buk04_amplitude, buk04_frequencies, buk04_f0s, buk04_phases = loadRecording('../SinusoidsTXT/TwoNote_BuK_04')
     buk23_amplitude, buk23_frequencies, buk23_f0s, buk23_phases = loadRecording('../SinusoidsTXT/TwoNote_BuK_23')
 
+
     # 1b)
     buk04_amplitude_T = np.transpose(buk04_amplitude)
     buk23_amplitude_T = np.transpose(buk23_amplitude)
 
     for i in range(5):
-        plt.plot(buk04_amplitude_T[i], label=str(i))
+        plt.plot(buk04_amplitude_T[i], label=str(i+1))
     plt.legend(loc=2)
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
@@ -152,29 +153,35 @@ def main():
     plt.show()
 
     for i in range(5):
-        plt.plot(buk23_amplitude_T[i], label=str(i))
+        plt.plot(buk23_amplitude_T[i], label=str(i+1))
     plt.legend()
     plt.xlabel("Frame")
     plt.ylabel("Amplitude")
     # plt.savefig('../Latex/Figures/buk23_amp.pgf')
     plt.show()
 
+
     # 1c)
-    # buk04_frequencies_T = np.transpose(buk04_frequencies)
-    # buk23_frequencies_T = np.transpose(buk23_frequencies)
-    #
-    # for i in range(5):
-    #     plt.plot(buk04_frequencies_T[i])
-    # plt.xlabel("Frame")
-    # plt.ylabel("Frequenz")
-    # #plt.show()
-    #
-    # for i in range(5):
-    #     plt.plot(buk23_frequencies_T[i])
-    # plt.xlabel("Frame")
-    # plt.ylabel("Frequenz")
-    # #plt.show()
-    #
+    buk04_frequencies_T = np.transpose(buk04_frequencies)
+    buk23_frequencies_T = np.transpose(buk23_frequencies)
+
+    for i in range(5):
+        plt.plot(buk04_frequencies_T[i], label=str(i+1))
+    plt.legend()
+    plt.xlabel("Frame")
+    plt.ylabel("Frequenz")
+    #plt.savefig('../Latex/Figures/buk04_freq.pgf')
+    plt.show()
+
+    for i in range(5):
+        plt.plot(buk23_frequencies_T[i], label=str(i+1))
+    plt.legend()
+    plt.xlabel("Frame")
+    plt.ylabel("Frequenz")
+    #plt.savefig('../Latex/Figures/buk23_freq.pgf')
+    plt.show()
+
+
     # #############################
     # # 2a)
     # #############################
