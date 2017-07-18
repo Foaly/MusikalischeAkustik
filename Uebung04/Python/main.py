@@ -36,6 +36,12 @@ def linearInterpolation(start, end, amount):
     return (end * amount) + (start  * (1.0 - amount))
 
 
+def convertToIntArray(floatSamples):
+    ii16 = np.iinfo(np.int16)
+    output = np.array(floatSamples) * ii16.max
+    return output.astype(np.int16)
+
+
 def synthesize(amplitudeArray: np.array, f0Array: np.array, fs: int):
     output = []
     frameSize = 128
@@ -189,14 +195,10 @@ def main():
     #
     fs = 44100
     output_buk04 = synthesize(buk04_amplitude, buk04_f0s, fs)
-    output = np.array(output_buk04)
-    #output = output.astype(np.int16)
-    write('buk04.wav', fs, output)
+    write('buk04.wav', fs, convertToIntArray(output_buk04))
 
     output_buk23 = synthesize(buk23_amplitude, buk23_f0s, fs)
-    output = np.array(output_buk23)
-    #output = output.astype(np.int16)
-    write('buk23.wav', fs, np.array(output))
+    write('buk23.wav', fs, convertToIntArray(output_buk23))
 
     # 2b)
     frame = 1024
@@ -230,14 +232,10 @@ def main():
     #############################
 
     output = synthesizeWithOvertones(buk04_amplitude, buk04_frequencies, fs)
-    #output = np.array(output)
-    #output = output.astype(np.int16)
-    write('buk04_overtones.wav', fs, np.array(output))
+    write('buk04_overtones.wav', fs, convertToIntArray(output))
 
     output = synthesizeWithOvertones(buk23_amplitude, buk23_frequencies, fs)
-    #output = np.array(output)
-    #output = output.astype(np.int16)
-    write('buk23_overtones.wav', fs, np.array(output))
+    write('buk23_overtones.wav', fs, convertToIntArray(output))
 
 if __name__ == '__main__':
     main()
