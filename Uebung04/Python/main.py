@@ -190,12 +190,12 @@ def main():
     fs = 44100
     output_buk04 = synthesize(buk04_amplitude, buk04_f0s, fs)
     output = np.array(output_buk04)
-    output = output.astype(np.int16)
+    #output = output.astype(np.int16)
     write('buk04.wav', fs, output)
 
     output_buk23 = synthesize(buk23_amplitude, buk23_f0s, fs)
     output = np.array(output_buk23)
-    output = output.astype(np.int16)
+    #output = output.astype(np.int16)
     write('buk23.wav', fs, np.array(output))
 
     # 2b)
@@ -230,13 +230,13 @@ def main():
     #############################
 
     output = synthesizeWithOvertones(buk04_amplitude, buk04_frequencies, fs)
-    output = np.array(output)
-    output = output.astype(np.int16)
+    #output = np.array(output)
+    #output = output.astype(np.int16)
     write('buk04_overtones.wav', fs, np.array(output))
 
     output = synthesizeWithOvertones(buk23_amplitude, buk23_frequencies, fs)
-    output = np.array(output)
-    output = output.astype(np.int16)
+    #output = np.array(output)
+    #output = output.astype(np.int16)
     write('buk23_overtones.wav', fs, np.array(output))
 
 if __name__ == '__main__':
