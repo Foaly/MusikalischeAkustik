@@ -28,18 +28,19 @@ Der Verlauf der Amplitude für die ersten fünf Partialtöne beider Aufnahmen is
 \end{figure}
 
 \paragraph{\nameref{fig:amp04}}
-Diese Aufnahme teilt sich in zwei signifikante Bereiche auf;
-Einen leisen linken Teil der bei Frame 1279 abrupt in einen deutlich lauteren rechten Teil wechselt.
-Der Amplitudenverlauf des linken Teils ist linear wohingegen der rechte Teil eine Dynamikbogen, von leise zu laut und wieder zurück, aufweist.
+Diese Aufnahme teilt sich in zwei signifikante Bereiche auf.
+Einen leisen frühen Teil der bei Frame 1279 abrupt in einen deutlich lauteren späten Teil wechselt.
+Der Amplitudenverlauf des frühen Teils ist linear wohingegen der späte Teil eine Dynamikbogen, von leise zu laut und wieder zurück, aufweist.
 
 \paragraph{\nameref{fig:amp23}}
 Auch in dieser Aufnahme sind zwei Bereiche erkennbar, die bei Frame 1279 wechseln.
 Im Gegensatz zur Aufnahme \nameref{fig:amp04} ist in dieser Aufnahme eine konstante Oszillation der Amplitude über alle Partialtöne erkennbar.
-Auffällig ist das im rechten Teil der erste Partialton sehr leise ist, dafür aber der zweite Partialton der lauteste ist.
+Diese stammt vom in der Aufnahme hörbaren Tremolo.
+Auffällig ist, dass im späten Teil der erste Partialton sehr leise ist, wohingegen im frühen Teil der erste Partialton der Lauteste ist.
 
 
 \subsection{}
-Der Verlauf der Frequenz für die ersten fünf Partialtöne beider Aufnahmen ist Abbildung \ref{fig:freq} zu sehen.
+Der Verlauf der Frequenz für die ersten fünf Partialtöne beider Aufnahmen ist in Abbildung \ref{fig:freq} zu sehen.
 \files{main.py}
 
 \begin{figure}[H]
@@ -62,15 +63,18 @@ Der Verlauf der Frequenz für die ersten fünf Partialtöne beider Aufnahmen ist
 
 \paragraph{\nameref{fig:freq04}}
 Von Frame 54 bis Frame 96 ist die Einschwingphase des Instruments zu erkennen.
-Anschließend bleibt der Grundton bei 221 Hz relativ konstant.
+Anschließend bleibt der Grundton bei 221 Hz  sowie seine Obertöne relativ konstant.
 Ab Frame 1260 findet ein kurzes Portamento über 30 Frames statt, woraufhin der nächste Grundton von 295 Hz erreicht wird.
 Bei Frame 2400 beginnt die Ausschwingphase des Instruments, welches schließlich bei Frame 2520 ausgeklungen ist.
 
 \paragraph{\nameref{fig:freq23}}
 Von Frame 70 bis Frame 120 ist die Einschwingphase des Instruments zu erkennen.
-Anschließend bleibt der Grundton bei 285 Hz relativ konstant.
+Anschließend oszilliert der Grundton bei 285 Hz sowie seine Obertöne konstant in einem schmalen Frequenzbereich.
+Diese Frequenzmodulation ist auf das im Signal hörbare Vibrato zurückzuführen.
+Dabei fällt auf, dass die Oszillationen bei höheren Frequenzen stärker ausgeprägt sind beim Grundton.
 Ab Frame 1170 klingt der Ton aus und bei Frame 1382 wird ein neuer angesetzt.
 Wieder nach einer kurzen Einschwingphase wird der nächste Grundton von 220 Hz erreicht wird.
+Auch hier ist das Vibrato zu erkennen.
 Bei Frame 2675 beginnt die Ausschwingphase des zweiten Tons, der schließlich bei Frame 2765 ausgeklungen ist.
 
 
@@ -101,6 +105,21 @@ Das resultierende Signal ist in den Dateien \texttt{buk04.wav} bzw. \texttt{buk2
     \label{fig:spectrogram}
 \end{figure}
 
+
+Die Grundfrequenz des generierten Signals liegt bei ca. 220 Hertz. 
+Der erste Oberton liegt dem entsprechend bei 440 Hz.
+Die Parametrierung des Spektrogramms wurde so gewählt, dass der Frequenzabstand der Fourier Analyse zwischen zwei benachbarten Bins kleiner als 220 Hz seien muss, damit die einzelnen Sinustöne klar zu erkennen sind.
+Der Zusammenhang zwischen dem Anzahl der Bins $N$, der Sampling Frequenz $f_s$ und dem Frequenzabstand $\Delta f$ wird durch folgende Formel beschrieben:  $ N = \frac{f_s}{\Delta f}$.
+Mit einer Sampling Frequenz von 44100 Hz wären ~200 Bins ausreichend um mit je einem Bin die synthetisierten Frequenzen klar darzustellen.
+Dementsprechend wäre eine FFT mit einer Framegröße von 512 Samplen ausreichend.
+Um eine klareres Bild zu erzeugen wurde eine Framegröße von 1024 Samplen gewählt.
+Eine erhöhte zeitliche Auflösung wurde durch einen Overlap von 50\% erreicht.
+Um die Effekte des Spectal Leakage zu minimieren haben wir ein Hanningfenster gewählt.
+Wie erwartet lassen sich die einzelnen generierten Frequenzen im Spektrogram klar erkennen.
+Im Spektrogramm der Datei Buk\_23.wav lässt sich das Vibrato deutlich ablesen.
+Dabei fällt auf, dass das Vibrato in den höheren Frequenzen (Obertöne) stärker auftritt, als in den Niedrigeren.
+Dieser Effekt ist noch deutlicher zu beobachten als in Abbildung \nameref{fig:freq23}, da mehr Obertöne dargestellt werden.
+
 \files{main.py}
 
 
@@ -115,6 +134,13 @@ Das generierten Signal ist in den Dateien \texttt{buk04\_overtones.wav} bzw. \te
 
 
 \subsection{}
+Die generierten Signale unterscheiden sich voneinander im Höreindruck. 
+Die Klänge mit künstlich generierten Obertonfrequenzen aus Abschnitt \ref{sec:2} klingen weniger organisch und weniger dynamisch in der Klangfarbe. 
+Dies sollte am perfekten Verhältnis der Obertöne zueinander liegen.
+Außerdem klingen sie etwas aufdringlicher, komprimierter und weniger nuanciert.
+Bei den in Abschnitt \ref{sec:3} mit ausgelesenen Obertonfrequenzen generierten Klängen hört man Schwebungen, die durch die nicht perfekten Frequenzverhältnisse der Obertöne zustande kommen, was den Klang realitätsnaher und organischer macht.
+Dies führt zu einem ausbalancierterem Höreindruck.
+
 \files{main.py}
 
 
